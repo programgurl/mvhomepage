@@ -8,6 +8,7 @@
         background-color: rgb(185,179,175);}
       h1 {
         color: rgb(255,255, 255);}
+    </style>
   </head>
   <body>
     <h1>Hi, I'm Mariana Vasquez!</h1>
@@ -28,5 +29,4 @@
     </address>
   </body>
  </html>
-  
   
