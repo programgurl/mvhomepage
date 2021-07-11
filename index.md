@@ -7,8 +7,7 @@
         font-family: arial;
         background-color: LightYellow;
         width: 90%;
-        margin: 0 auto;
-        text-align: center;}
+        margin: 0 auto;}
       #content {overflow: auto;}
       #nav, #feature, #footer {
         margin: 1%;}
@@ -19,10 +18,12 @@
       .column3 {margin-right: 0%;}
       li {
         display: inline;
-        padding: 0.5em;}
+        padding: 0.5em;
+        text-decoration: none}
       #nav, #footer {
         background-color: MistyRose;
-        padding: 0.5em 0;}
+        padding: 0.5em 0;
+        text-align: center;}
       #feature, .article {
         height: 10em;
         margin-bottom: 1em;
