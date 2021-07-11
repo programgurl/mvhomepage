@@ -28,7 +28,7 @@
       #about, .article {
         height: 10em;
         margin-bottom: 1em;
-        background-color: LightGray
+        background-color: GhostWhite
         text-align: center;}
     </style>
   </head>
@@ -43,7 +43,12 @@
     <div id="content">
       <div id="about">
         <h2>About</h2>
-        <p>Hello! I am Mariana, a sophmore at UC Berkeley and intended Computer Science major. At the moment, my academic interests include artificial intelligence research, cs theory, and applied mathematics. Outside of academics, I spend my free time practicing classical pieces on my piano, reading fiction, or working on side projects.
+        <p>
+          Hello! I am Mariana, a sophmore at UC Berkeley and intended Computer Science major. At the moment, my academic interests include artificial intelligence research, cs theory, and applied mathematics. Outside of academics, I spend my free time practicing classical pieces on my piano, reading fiction, or working on side projects.
+        </p>
+        <p>
+          You can reach me at <a href="mailto:marianavasquez@berkeley.edu">marianavasquez@berkeley.edu</a>!
+        </p>
       </div>
       <div class="article column1" id="project1">
         <h3>Project One</h3>
