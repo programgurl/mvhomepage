@@ -5,34 +5,34 @@
     <style type="text/css">
       body {
         font-family: arial;
-        background-color: GhostWhite;
+        background-color: White;
         width: 90%;
         margin: 0 auto;}
       #content {overflow: auto;}
-      #nav, #feature, #footer {
+      #nav, #about, #footer {
         margin: 1%;}
       .column1, .column2, .column3 {
         width: 31.3%;
         float: left;
-        margin 1%;}
+        margin 1%;
+        text-align: center;}
       .column3 {margin-right: 0%;}
       li {
         display: inline;
         padding: 0.5em;
         text-decoration: none}
       #nav, #footer {
-        background-color: MistyRose;
+        background-color: GhostWhite;
         padding: 0.5em 0;
         text-align: center;}
-      #feature, .article {
+      #about, .article {
         height: 10em;
         margin-bottom: 1em;
-        background-color: LightCyan
+        background-color: LightGray
+        text-align: center;}
     </style>
   </head>
   <body>
-    <div id="header">
-      <h1>Mariana Vasquez</h1>
       <div id="nav">
         <ul>
           <li><a href="">Home</a></li>
@@ -40,19 +40,18 @@
           <li><a href="">Projects</a></li>
         </ul>
       </div>
-    </div>
     <div id="content">
-      <div id="feature">
-        <p>About</p>
+      <div id="about">
+        <h2>About</h2>
       </div>
       <div class="article column1">
-        <p>Project One</p>
+        <h3>Project One</h3>
       </div>
       <div class="article column2">
-        <p>Project Two</p>
+        <h3>Project Two</h3>
       </div>
       <div class="article column3">
-        <p>Project Three</p>
+        <h3>Project Three</h3>
       </div>
     </div>
     <div id="footer">
