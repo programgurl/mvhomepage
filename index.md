@@ -7,7 +7,8 @@
         font-family: arial;
         background-color: LightYellow;
         width: 90%;
-        margin: 0 auto;}
+        margin: 0 auto;
+        text-align: center;}
       #content {overflow: auto;}
       #nav, #feature, #footer {
         margin: 1%;}
