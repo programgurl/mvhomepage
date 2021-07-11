@@ -4,7 +4,7 @@
     <title>Mariana Vasquez</title>
     <style type="text/css">
       body {
-        font-family: arial;
+        font-family: Georgia, Times, serif;
         background-color: White;
         width: 90%;
         margin: 0 auto;}
