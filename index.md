@@ -32,7 +32,7 @@
   </head>
   <body>
     <div id="header">
-      <h1>Logo</h1>
+      <h1>Mariana Vasquez</h1>
       <div id="nav">
         <ul>
           <li><a href="">Home</a></li>
@@ -43,20 +43,20 @@
     </div>
     <div id="content">
       <div id="feature">
-        <p>Feature</p>
+        <p>About</p>
       </div>
       <div class="article column1">
-        <p>Column One</p>
+        <p>Project One</p>
       </div>
       <div class="article column2">
-        <p>Column Two</p>
+        <p>Project Two</p>
       </div>
       <div class="article column3">
-        <p>Column Three</p>
+        <p>Project Three</p>
       </div>
     </div>
     <div id="footer">
-      <p>&copy: Copyright 2021</p>
+      <p>Jul 2021 | Mariana Vasquez</p>
     </div>
   </body>
  </html>
