@@ -5,7 +5,7 @@
     <style type="text/css">
       body {
         font-family: arial;
-        background-color: LightYellow;
+        background-color: GhostWhite;
         width: 90%;
         margin: 0 auto;}
       #content {overflow: auto;}
