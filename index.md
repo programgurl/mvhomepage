@@ -38,14 +38,15 @@
         padding: 14px 16px;
         text-decoration: none;}
       li a:hover {
-        color: #111;}
+        background-color: #111;}
       img {
         width: 300px;
         height: 300px;}
       #footer {
-        background-color: GhostWhite;
-        padding: 0.5em 0;
+        background-color: #333;
         text-align: center;}
+      #footer p{
+        color: white;}
       #about, .article {
         height: 10em;
         margin-bottom: 1em;
@@ -72,16 +73,25 @@
         </p>
       </div>
       <div class="article column1" id="project1">
-        <h3>Project One</h3>
+        <h3>Covid-19 US-Mexican Border Crossing Risk Assessor</h3>
         <img src="https://mtrevenue.gov/wp-content/uploads/2020/03/Covid19Cropped.jpg"/>
+        <p>
+          A couple of other undergraduate students and I formed a team and enrolled in the UCSD Covid-19 Data Challenge. By collecting publicly available data on bus routes along the U.S. and Mexican border, my team and I were able to map out recommendations of safer routes that were less crowded and reported the least number of Covid-19 cases. Using our web development skills, we embedded interactive visualizations into our site to enhance the user experience. At the close of the competition, we won an honorary mention and a monetary award.
+        </p>
       </div>
       <div class="article column2">
-        <h3>Project Two</h3>
+        <h3>Directed Reading Program</h3>
         <img src="https://miro.medium.com/max/476/1*NX1uR7kPf5DKJHoAw3sUEQ.png"/>
+        <p>
+          Last semester, I was a mentee of the Directed Reading Program at UC Berkeley. Under the guidance of my graduate student mentor, I explored clustering methods that could that made use of finite difference methods to identify groups formed at numerous time steps in the heat equation.
+        </p>
       </div>
       <div class="article column3">
-        <h3>Project Three</h3>
+        <h3>Medix REU Program</h3>
         <img src="https://th.bing.com/th/id/OIP.p9cwmepna-2TVXTRnIPS6gHaE7?pid=ImgDet&rs=1"/>
+        <p>
+          Currently, I am participating at the Medix REU program and developing a deep learning model to classify OCT images of age-related macular degeneration. Much of my summer has been spent learning machine learning concepts, familiarizing myself with software tools such as tensorflow, reading research papers, and refining my project's methodology.
+        </p>
       </div>
     </div>
     <div id="footer">
