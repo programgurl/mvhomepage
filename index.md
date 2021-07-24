@@ -41,7 +41,7 @@
         color: #111;}
       img {
         width: 300px;
-        height: 300px;
+        height: 300px;}
       #footer {
         background-color: GhostWhite;
         padding: 0.5em 0;
