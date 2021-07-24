@@ -8,7 +8,6 @@
       body {
         font-family: Georgia, Times, serif;
         background-color: White;
-        width: 90%;
         margin: 0 auto;}
       #content {overflow: auto;}
       #nav, #about, #footer {
