@@ -10,7 +10,10 @@
         background-color: White;
         margin: 0 auto;}
       #about {
-        margin: 1% 5% 1%;}
+        margin: 5% 5% 1%;}
+      .one, two {
+        width: 47%;
+        float: left;}
       .column1, .column2, .column3 {
         width: 31.3%;
         float: left;
@@ -37,7 +40,7 @@
         text-decoration: none;}
       li a:hover {
         background-color: #111;}
-      #button {
+      #name {
         float:left;}
       img {
         width: 300px;
@@ -53,7 +56,7 @@
     
       <div id="nav">
         <ul>
-          <li id="button"><a href="/" style="text-decoration: none;">Mariana Vasquez</a></li>
+          <li id="name"><a href="/" style="text-decoration: none;">Mariana Vasquez</a></li>
           <li><a href="#page-top" style="text-decoration: none;">Home</a></li>
           <li><a href="#about" style="text-decoration: none;">About</a></li>
           <li><a href="#projects" style="text-decoration: none;">Projects</a></li>
@@ -62,12 +65,17 @@
     
       <div id="about">
         <h2>About</h2>
-        <p>
-          Hello! I'm Mariana, a sophmore at UC Berkeley and intended Computer Science major. At the moment, my academic interests include artificial intelligence research, cs theory, and applied mathematics. Outside of academics, I spend my free time practicing classical pieces on my piano, reading fiction, or working on side projects.
-        </p>
-        <p>
-          You can reach me at <a href="mailto:marianavasquez@berkeley.edu" style="text-decoration: none;">marianavasquez@berkeley.edu</a>!
-        </p>
+        <div class="half one">
+          <img src="https://img00.deviantart.net/9383/i/2011/214/a/9/the_shadow_at_the_beach_by_melir-d42p51n.jpg"/>
+        </div>
+        <div class="half two">
+          <p>
+            Hello! I'm Mariana, a sophmore at UC Berkeley and intended Computer Science major. At the moment, my academic interests include artificial intelligence research, cs theory, and applied mathematics. Outside of academics, I spend my free time practicing classical pieces on my piano, reading fiction, or working on side projects.
+          </p>
+          <p>
+            You can reach me at <a href="mailto:marianavasquez@berkeley.edu" style="text-decoration: none;">marianavasquez@berkeley.edu</a>!
+          </p>
+        </div>
       </div>
     
       <div id="projects">
