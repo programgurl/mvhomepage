@@ -9,8 +9,9 @@
         font-family: Georgia, Times, serif;
         background-color: White;
         margin: 0 auto;}
-      #about {
-        margin: 5% 5% 1%;}
+      #about, #projects {
+        margin: 5% 5% 1%;
+        padding: 5px;}
       .one, two {
         width: 47%;
         float: left;}
@@ -45,7 +46,7 @@
       img {
         width: 300px;
         height: 300px;}
-      #about, .article {
+      .article {
         height: 10em;
         margin-bottom: 1em;
         background-color: GhostWhite
