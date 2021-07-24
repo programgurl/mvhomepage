@@ -40,16 +40,16 @@
       img {
         width: 300px;
         height: 300px;}
-      #footer {
-        background-color: #333;
-        text-align: center;}
-      #footer p{
-        color: white;}
       #about, .article {
         height: 10em;
         margin-bottom: 1em;
         background-color: GhostWhite
         text-align: center;}
+      #footer {
+        background-color: #333;
+        text-align: center;}
+      #footer p{
+        color: white;}
     </style>
   </head>
   <body>
@@ -63,7 +63,7 @@
       <div id="about">
         <h2>About</h2>
         <p>
-          Hello! I am Mariana, a sophmore at UC Berkeley and intended Computer Science major. At the moment, my academic interests include artificial intelligence research, cs theory, and applied mathematics. Outside of academics, I spend my free time practicing classical pieces on my piano, reading fiction, or working on side projects.
+          Hello! I'm Mariana, a sophmore at UC Berkeley and intended Computer Science major. At the moment, my academic interests include artificial intelligence research, cs theory, and applied mathematics. Outside of academics, I spend my free time practicing classical pieces on my piano, reading fiction, or working on side projects.
         </p>
         <p>
           You can reach me at <a href="mailto:marianavasquez@berkeley.edu" style="text-decoration: none;">marianavasquez@berkeley.edu</a>!
