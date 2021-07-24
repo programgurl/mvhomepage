@@ -63,7 +63,7 @@
         </ul>
       </div>
     
-      <div id="about">
+      <div id="about" style="border-style: outset;>
         <h2>About</h2>
         <div class="half one">
           <img src="https://img00.deviantart.net/9383/i/2011/214/a/9/the_shadow_at_the_beach_by_melir-d42p51n.jpg"/>
@@ -78,7 +78,7 @@
         </div>
       </div>
     
-      <div id="projects">
+      <div id="projects" style="border-style: outset;>
           <h2>Projects</h2>
         <div class="article column1" id="project1">
           <h3>Covid-19 US-Mexican Border Crossing Risk Assessor</h3>
