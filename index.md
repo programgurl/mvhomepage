@@ -45,11 +45,6 @@
         margin-bottom: 1em;
         background-color: GhostWhite
         text-align: center;}
-      #footer {
-        background-color: #333;
-        text-align: center;}
-      #footer p{
-        color: white;}
     </style>
   </head>
   <body>
@@ -80,7 +75,7 @@
         <h3>Directed Reading Program</h3>
         <img src="https://miro.medium.com/max/476/1*NX1uR7kPf5DKJHoAw3sUEQ.png"/>
         <p>
-          Last semester, I was a mentee of the Directed Reading Program at UC Berkeley. Under the guidance of my graduate student mentor, I explored clustering methods that could that made use of finite difference methods to identify groups formed at numerous time steps in the heat equation.
+          Last semester, I was a mentee of the Directed Reading Program at UC Berkeley. Under the guidance of my graduate student mentor, I explored clustering methods that made use of finite difference methods to identify groups formed at numerous time steps in the heat equation.
         </p>
       </div>
       <div class="article column3">
@@ -90,9 +85,6 @@
           Currently, I am participating at the Medix REU program and developing a deep learning model to classify OCT images of age-related macular degeneration. Much of my summer has been spent learning machine learning concepts, familiarizing myself with software tools such as tensorflow, reading research papers, and refining my project's methodology.
         </p>
       </div>
-    <div id="footer">
-      <p>Jul 2021 | Mariana Vasquez</p>
-    </div>
   </body>
  </html>
   
