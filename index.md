@@ -37,6 +37,8 @@
         text-decoration: none;}
       li a:hover {
         background-color: #111;}
+      #button {
+        float:left;}
       img {
         width: 300px;
         height: 300px;}
@@ -51,7 +53,8 @@
     
       <div id="nav">
         <ul>
-          <li><a href="#home" style="text-decoration: none;">Home</a></li>
+          <li id="button"><a href="/" style="text-decoration: none;">Mariana Vasquez</a></li>
+          <li><a href="#page-top" style="text-decoration: none;">Home</a></li>
           <li><a href="#about" style="text-decoration: none;">About</a></li>
           <li><a href="#projects" style="text-decoration: none;">Projects</a></li>
         </ul>
