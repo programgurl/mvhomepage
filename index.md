@@ -92,9 +92,9 @@
           Currently, I am participating at the Medix REU program and developing a deep learning model to classify OCT images of age-related macular degeneration. Much of my summer has been spent learning machine learning concepts, familiarizing myself with software tools such as tensorflow, reading research papers, and refining my project's methodology.
         </p>
       </div>
-    </div>
     <div id="footer">
       <p>Jul 2021 | Mariana Vasquez</p>
+    </div>
     </div>
   </body>
  </html>
