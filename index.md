@@ -10,7 +10,7 @@
         background-color: White;
         margin: 0 auto;}
       #content {overflow: auto;}
-      #nav, #about, #footer {
+      #about {
         margin: 1%;}
       .column1, .column2, .column3 {
         width: 31.3%;
