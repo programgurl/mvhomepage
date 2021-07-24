@@ -9,7 +9,7 @@
         font-family: Georgia, Times, serif;
         background-color: White;
         margin: 0 auto;}
-      #content {overflow: scroll;}
+      #content {overflow: initial;}
       #about {
         margin: 1%;}
       .column1, .column2, .column3 {
