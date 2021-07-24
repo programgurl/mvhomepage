@@ -9,7 +9,6 @@
         font-family: Georgia, Times, serif;
         background-color: White;
         margin: 0 auto;}
-      #content {overflow: initial;}
       #about {
         margin: 1%;}
       .column1, .column2, .column3 {
@@ -61,7 +60,6 @@
           <li><a href="#project1" style="text-decoration: none;">Projects</a></li>
         </ul>
       </div>
-    <div id="content">
       <div id="about">
         <h2>About</h2>
         <p>
@@ -94,7 +92,6 @@
       </div>
     <div id="footer">
       <p>Jul 2021 | Mariana Vasquez</p>
-    </div>
     </div>
   </body>
  </html>
