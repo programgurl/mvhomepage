@@ -19,7 +19,7 @@
       #projects {
         background: grey;
         padding: 10px;}
-      #projects listed {
+      #projectslisted {
         display: flex;
         flex-direction: row;
         text-align: center;}
@@ -46,7 +46,8 @@
       #name {
         float:left;}
       .half two {
-        padding: 5%;
+        background: red;
+        padding: 10%;
         text-align: center;}
       img {
         border-radius: 50%;}
@@ -56,10 +57,10 @@
     
       <div id="nav">
         <ul>
-          <li id="name"><a href="/" style="text-decoration: none;">Mariana Vasquez</a></li>
-          <li><a href="#page-top" style="text-decoration: none;">Home</a></li>
-          <li><a href="#about" style="text-decoration: none;">About</a></li>
+          <li id="name"><a href="" style="text-decoration: none;">Mariana Vasquez</a></li>
           <li><a href="#projects" style="text-decoration: none;">Projects</a></li>
+          <li><a href="#about" style="text-decoration: none;">About</a></li>
+          <li><a href="/" style="text-decoration: none;">Home</a></li>
         </ul>
       </div>
     
@@ -79,7 +80,7 @@
     
       <div id="projects">
           <h2>Projects</h2>
-        <div id="projects listed">
+        <div id="projectslisted">
         <div class="article column1" id="project1">
           <h3>Covid-19 US-Mexican Border Crossing Risk Assessor</h3>
             <img src="https://mtrevenue.gov/wp-content/uploads/2020/03/Covid19Cropped.jpg" height="300" width="300">
