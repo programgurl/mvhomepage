@@ -13,6 +13,7 @@
         margin: 5% 5% 1%;
         padding: 5px;}
       .half {
+        background: grey;
         display: flex;
         flex-direction: row;}
       .article {
@@ -21,7 +22,6 @@
         display: flex;
         flex-direction: row;
         text-align: center;}
-      .column3 {margin-right: 0%;}
       ul {
         list-style-type: none;
         margin: 0;
@@ -46,11 +46,6 @@
         float:left;}
       img {
         border-radius: 50%;}
-      .article {
-        height: 10em;
-        margin-bottom: 1em;
-        background-color: GhostWhite
-        text-align: center;}
     </style>
   </head>
   <body>
