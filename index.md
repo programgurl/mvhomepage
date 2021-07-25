@@ -4,6 +4,7 @@
 <html>
   <head>
     <title>Mariana Vasquez</title>
+    <link rel="icon" href="https://www.pinclipart.com/picdir/middle/178-1786243_m-m-border-clip-art.png">
     <style type="text/css">
       body {
         font-family: Georgia, Times, serif;
