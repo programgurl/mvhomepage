@@ -45,7 +45,7 @@
         background-color: #111;}
       #name {
         float:left;}
-      .half two {
+      .halftwo {
         background: red;
         padding: 10%;
         text-align: center;}
@@ -65,10 +65,10 @@
       </div>
     
       <div id="about">
-        <div class="half one">
+        <div class="halfone">
           <img src="https://img00.deviantart.net/9383/i/2011/214/a/9/the_shadow_at_the_beach_by_melir-d42p51n.jpg" height="300" width="300">
         </div>
-        <div class="half two">
+        <div class="halftwo">
           <p>
             Hello! I'm Mariana, a sophmore at UC Berkeley and intended Computer Science major. At the moment, my academic interests include artificial intelligence research, cs theory, and applied mathematics. Outside of academics, I spend my free time practicing classical pieces on my piano, reading fiction, or working on side projects.
           </p>
