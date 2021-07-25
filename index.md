@@ -13,12 +13,13 @@
         margin: 5% 5% 1%;
         padding: 5px;}
       .one, two {
-        width: 47%;
-        float: left;}
+        display: flex;
+        flex-direction: row;}
       .column1, .column2, .column3 {
-        width: 31.3%;
-        float: left;
-        margin 1%;
+        background: grey;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
         text-align: center;}
       .column3 {margin-right: 0%;}
       ul {
