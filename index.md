@@ -12,11 +12,11 @@
       #about, #projects {
         margin: 5% 5% 1%;
         padding: 5px;}
-      .half {
+      #about {
         background: grey;
         display: flex;
         flex-direction: row;}
-      .article {
+      #projects {
         background: grey;
         padding: 10px;
         display: flex;
