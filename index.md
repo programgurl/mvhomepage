@@ -12,10 +12,10 @@
       #about, #projects {
         margin: 5% 5% 1%;
         padding: 5px;}
-      .one, two {
+      .half {
         display: flex;
         flex-direction: row;}
-      .column1, .column2, .column3 {
+      .article {
         background: grey;
         padding: 10px;
         display: flex;
