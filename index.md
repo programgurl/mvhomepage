@@ -22,6 +22,7 @@
       #projectslisted {
         display: flex;
         flex-direction: row;
+        flex: 1;
         text-align: center;}
       ul {
         list-style-type: none;
@@ -46,8 +47,7 @@
       #name {
         float:left;}
       .halftwo {
-        background: red;
-        padding: 10%;
+        padding: 5%;
         text-align: center;}
       img {
         border-radius: 50%;}
