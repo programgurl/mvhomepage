@@ -10,6 +10,12 @@
         font-family: Georgia, Times, serif;
         background-color: White;
         margin: 0 auto;}
+      #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%; 
+        min-height: 100%;}
       #about {
         margin: 10% 5% 10%;
         padding: 5px;
@@ -96,13 +102,14 @@
           <li><a href="/" style="text-decoration: none;">Home</a></li>
         </ul>
       </div>
+      <video autoplay muted loop id="myVideo" width="300" height="300">
+        <source src="imgs/beachpic.mp4">
+      </video>
     
       <div id="about">
         <div class="me">
 <!--           <img src="https://img00.deviantart.net/9383/i/2011/214/a/9/the_shadow_at_the_beach_by_melir-d42p51n.jpg" id="mypic" height="300" width="300"> -->
-          <video width="300" height="300" autoplay="autoplay" name="Portrait" controls loop controls muted>
-            <source src="imgs/beachpic.mp4">
-          </video>
+          
         </div>
         <div class="info">
           <div class="typing">
