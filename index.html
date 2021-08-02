@@ -7,25 +7,38 @@
     <link rel="shortcut icon" href="favicon.ico">
     <style type="text/css">
       body {
-        font-family: Georgia, Times, serif;
+        /* font-family: Georgia, Times, serif; */
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
         background-color: White;
         margin: 0 auto;}
-      #myVideo {
-        height: 100%;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.5);
+      #home, #overlay {
+        position: relative;
+        height: 100vh;
         overflow: hidden;}
+      #myVideo, #overlay {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -30%);
+        width: 100%;}
+      #overlay {
+        background: rgba(0, 0, 0, 0.4);
+        transform: translate(0, -50%);
+        z-index: 1;}
+      #overtext {
+        position: absolute;
+        color: white;
+        width: 25%;
+        top: 0;
+        transform: translate(30%, 150%);
+        z-index: 2;
+        }
       #about {
         margin: 10% 5% 10%;
         padding: 5px;
         background: LightGray;
         display: flex;
         flex-direction: row;}
-      #projects {
-        margin: 10% 5% 5%;
-        background: LightGray;
-        padding: 10px;}
-      #projectslisted {
+      /* #projectslisted {
         display: flex;
         flex-direction: row;
         padding-top: 0;
@@ -35,7 +48,7 @@
         margin: auto;
         width: 325px;
         box-shadow: grey 0 0 5px;
-        border-radius: 5%;}
+        border-radius: 5%;} */
       ul {
         list-style-type: none;
         margin: 0;
@@ -43,6 +56,7 @@
         overflow: hidden;
         background-color: #333;
         position: fixed;
+        z-index: 3;
         top: 0;
         width: 100%;}
       li {
@@ -57,13 +71,33 @@
       li a:hover {
         background-color: #111;}
       #name {
-        float:left;}
+        float: left;}
       .info {
         padding: 5%;
         text-align: center;}
+      
+      #projTitle {
+        margin-left: 5%;}
+      .projects {
+        margin-left: 0%;}
+      .project1 {
+        margin-left: 40%;
+        margin-bottom: 5%;
+        padding-bottom: 5%;
+        background-color: lightgray;}
+      .project2 {
+        margin: 0% 60% 5% 5%;
+        padding-bottom: 5%;
+        background-color: lightgray;}
+      .project3 {
+        margin-left: 60%;
+        padding-bottom: 5%;
+        background-color: lightgray;}
+      .projName {
+        border-top-color: black;
+        color: white;}
       img {
-        border: 1px solid white;
-        border-radius: 5%;}
+        box-shadow: grey 0 0 0px;}
       footer {
         margin: 0;
         padding: 14px 16px;
@@ -73,9 +107,9 @@
         text-align: center;}
       .typing {
         overflow: hidden;
-        width: 6em;
+        width: 4.5em;
         border-right: 2px solid rgba(0, 0, 0, 0.75);
-        font-size: 24px;
+        font-size: 32px;
         white-space: nowrap;
         animation: typewriter 2s steps(15) 1s 1 normal both,
                    blinkTextCursor 1s steps(5) infinite normal;}
@@ -83,7 +117,7 @@
         from {
           width: 0;}
         to {
-          width: 6em;}}
+          width: 4.5em;}}
       @keyframes blinkTextCursor {
         from {
           border-right-color: rgba(0, 0, 0, 0.75);}
@@ -98,21 +132,31 @@
           <li id="name"><a href="" style="text-decoration: none;">Mariana Vasquez</a></li>
           <li><a href="#projects" style="text-decoration: none;">Projects</a></li>
           <li><a href="#about" style="text-decoration: none;">About</a></li>
-          <li><a href="/" style="text-decoration: none;">Home</a></li>
+          <li><a href="#home" style="text-decoration: none;">Home</a></li>
         </ul>
       </div>
-      <video autoplay muted loop id="myVideo">
-        <source src="imgs/beachpic.mp4">
-      </video>
+
+      <div id="home">
+        <video autoplay muted loop id="myVideo">
+          <source src="imgs/beachpic.mp4">
+        </video>
+      </div>
+
+      <div id="overlay">
+      </div>
+
+      <div id="overtext">
+        <p style="font-size: 40px;">hey there!</p>
+        <p style="font-size: 16px;">I'm Mariana, a sophmore at UC Berkeley and intended Computer Science major.</p>
+      </div>
     
       <div id="about">
         <div class="me">
 <!--           <img src="https://img00.deviantart.net/9383/i/2011/214/a/9/the_shadow_at_the_beach_by_melir-d42p51n.jpg" id="mypic" height="300" width="300"> -->
-          
         </div>
         <div class="info">
           <div class="typing">
-             Hello there!
+             about me
           </div>
           <p>
             I'm Mariana, a sophmore at UC Berkeley and intended Computer Science major. At the moment, my academic interests include artificial intelligence research, cs theory, and applied mathematics. Outside of academics, I spend my free time practicing classical pieces on my piano, reading fiction, or working on side projects.
@@ -123,8 +167,8 @@
         </div>
       </div>
     
-      <div id="projects">
-          <h2>Projects</h2>
+      <!-- <div id="projects">
+          <p style="font-size: 32px;">projects</p>
         <div id="projectslisted">
         <div class="article column1" id="project1">
           <h3>Covid-19 US-Mexican Border Crossing Risk Assessor</h3>
@@ -148,7 +192,30 @@
             </p>
         </div>
         </div>
-    </div>
+     </div> -->
+     <p style="font-size: 32px;" id="projTitle">projects</p>
+     <div class="projects">
+
+      <div class="project1">
+        
+          <img src="imgs/DataChallenge.png" alt="UCSD Data Challenge" height="225" width="300">
+          <p style="font-size: 18px;" class="projName">Covid-19 US-Mexican Border Crossing Risk Assessor</p>
+      </div>
+
+      <div class="project2">
+        
+          <img src="https://miro.medium.com/max/476/1*NX1uR7kPf5DKJHoAw3sUEQ.png" height="225" width="300">
+          <p style="font-size: 18px;" class="projName">Directed Reading Program</p>
+      </div>
+
+      <div class="project3">
+        
+          <img src="https://th.bing.com/th/id/OIP.p9cwmepna-2TVXTRnIPS6gHaE7?pid=ImgDet&rs=1" height="225" width="300">
+          <p style="font-size: 18px;" class="projName">Medix REU Program</p>
+      </div>
+
+     </div>
+
     <footer>
       Jul 2021 | Mariana Vasquez
     </footer>
