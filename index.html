@@ -5,6 +5,9 @@
   <head>
     <title>Mariana Vasquez</title>
     <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style type="text/css">
       body {
         /* font-family: Georgia, Times, serif; */
@@ -21,7 +24,7 @@
         transform: translate(0, -30%);
         width: 100%;}
       #overlay {
-        background: rgba(0, 0, 0, 0.4);
+        background: rgba(0, 0, 0, 0);
         transform: translate(0, -50%);
         z-index: 1;}
       #overtext {
@@ -35,26 +38,16 @@
       #about {
         margin: 10% 5% 10%;
         padding: 5px;
-        background: LightGray;
+        background: lightblue;
         display: flex;
         flex-direction: row;}
-      /* #projectslisted {
-        display: flex;
-        flex-direction: row;
-        padding-top: 0;
-        text-align: center;}
-      .article {
-        background: WhiteSmoke;
-        margin: auto;
-        width: 325px;
-        box-shadow: grey 0 0 5px;
-        border-radius: 5%;} */
       ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #333;
+        /* background-color: #333; */
+        background-color: white;
         position: fixed;
         z-index: 3;
         top: 0;
@@ -64,12 +57,13 @@
         text-decoration: none}
       li a {
         display: block;
-        color: white;
+        color: black;
         text-align: center;
-        padding: 14px 16px;
+        padding: 18px 16px;
         text-decoration: none;}
       li a:hover {
-        background-color: #111;}
+        /* background-color: #111;} */
+        color: gray;}
       #name {
         float: left;}
       .info {
@@ -81,23 +75,42 @@
       .projects {
         margin-left: 0%;}
       .project1 {
-        margin-left: 40%;
-        margin-bottom: 5%;
+        width: 65.75%;
+        /* margin: 5% auto; */
+        margin: 0% auto 5% auto;
         padding-bottom: 5%;
-        background-color: lightgray;}
+        background-color: lightpink;}
       .project2 {
-        margin: 0% 60% 5% 5%;
-        padding-bottom: 5%;
-        background-color: lightgray;}
+        margin: 5% 5%;
+        padding-bottom: 2%;
+        background-color: lightsalmon;}
       .project3 {
-        margin-left: 60%;
-        padding-bottom: 5%;
-        background-color: lightgray;}
+        margin: 5% 5%;
+        padding-bottom: 2%;
+        background-color: lightseagreen;}
+      .project2, .project3 {
+        display: inline-block;}
+      .project1 p, .project2 p, .project3 p {
+        padding-left: 20px;}  
+      .button {
+        float: right;
+        margin-right: 20px;
+        color: white;
+        background-color: #333;
+        border: #333;
+        padding: 8px;}
+      .button:hover {
+        color: black;
+        background-color: white;}
       .projName {
-        border-top-color: black;
+        padding-top: 7px;
         color: white;}
-      img {
-        box-shadow: grey 0 0 0px;}
+      /* .project1 img {
+        border: 5px solid rgb(57, 146, 182);
+        border-bottom: none;
+      } */
+      .project1, .project2, .project3 {
+        box-shadow: 0px 0px 2px grey;}
       footer {
         margin: 0;
         padding: 14px 16px;
@@ -167,51 +180,100 @@
         </div>
       </div>
     
-      <!-- <div id="projects">
-          <p style="font-size: 32px;">projects</p>
-        <div id="projectslisted">
-        <div class="article column1" id="project1">
-          <h3>Covid-19 US-Mexican Border Crossing Risk Assessor</h3>
-            <img src="imgs/DataChallenge.png" alt="UCSD Data Challenge" height="225" width="300">
-            <p>
-              A couple of other undergraduate students and I formed a team and enrolled in the UCSD Covid-19 Data Challenge. By collecting publicly available data on bus routes along the U.S. and Mexican border, my team and I were able to map out recommendations of safer routes that were less crowded and reported the least number of Covid-19 cases. Using our web development skills, we embedded interactive visualizations into our site to enhance the user experience. At the close of the competition, we won an honorary mention and a monetary award.
-            </p>
-        </div>
-        <div class="article column2">
-          <h3>Directed Reading Program</h3>
-            <img src="https://miro.medium.com/max/476/1*NX1uR7kPf5DKJHoAw3sUEQ.png" height="225" width="300">
-             <p>
-              Last semester, I was a mentee of the Directed Reading Program at UC Berkeley. Under the guidance of my graduate student mentor, I explored clustering methods that made use of finite difference methods to identify groups formed at numerous time steps in the heat equation.
-             </p>
-        </div>
-        <div class="article column3">
-          <h3>Medix REU Program</h3>
-            <img src="https://th.bing.com/th/id/OIP.p9cwmepna-2TVXTRnIPS6gHaE7?pid=ImgDet&rs=1" height="225" width="300">
-            <p>
-              Currently, I am participating at the Medix REU program and developing a deep learning model to classify OCT images of age-related macular degeneration. Much of my summer has been spent learning machine learning concepts, familiarizing myself with software tools such as tensorflow, reading research papers, and refining my project's methodology.
-            </p>
-        </div>
-        </div>
-     </div> -->
      <p style="font-size: 32px;" id="projTitle">projects</p>
      <div class="projects">
 
       <div class="project1">
         
-          <img src="imgs/DataChallenge.png" alt="UCSD Data Challenge" height="225" width="300">
+          <img src="imgs/DataChallenge.png" alt="UCSD Data Challenge" height="555" width="830">
           <p style="font-size: 18px;" class="projName">Covid-19 US-Mexican Border Crossing Risk Assessor</p>
+          <p style="font-size: 14px;">Lead a team to design a website that focused on assessing risk of infection for various modes of transportation at the <br> U.S.-Mexican border.</p>
+          <button class="button" data-toggle="modal" data-target="#project1Modal">Learn More</button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="project1Modal" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">UCSD Data Challenge</h4>
+                </div>
+                <div class="modal-body">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/7IUOkQhziK0?start=2350" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <p>More project one description.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
       </div>
 
       <div class="project2">
+        <!-- https://miro.medium.com/max/476/1*NX1uR7kPf5DKJHoAw3sUEQ.png -->
+        <!-- https://miro.medium.com/max/2732/1*Noiu-eKvub08g0dvCX0dMg.png -->
         
-          <img src="https://miro.medium.com/max/476/1*NX1uR7kPf5DKJHoAw3sUEQ.png" height="225" width="300">
+          <img src="https://miro.medium.com/max/2732/1*TVAh3LCEwXMOYGPMrD9Abg.png" height="400" width="500">
           <p style="font-size: 18px;" class="projName">Directed Reading Program</p>
+          <p style="font-size: 14px;">Built a clustering algorithm to group the x points from the heat equation at <br> time step t.</p>
+          <button class="button" data-toggle="modal" data-target="#project2Modal">Learn More</button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="project2Modal" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Directed Reading Program</h4>
+                </div>
+                <div class="modal-body">
+                  <p>More project two description.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
       </div>
 
       <div class="project3">
         
-          <img src="https://th.bing.com/th/id/OIP.p9cwmepna-2TVXTRnIPS6gHaE7?pid=ImgDet&rs=1" height="225" width="300">
-          <p style="font-size: 18px;" class="projName">Medix REU Program</p>
+          <img src="https://th.bing.com/th/id/OIP.p9cwmepna-2TVXTRnIPS6gHaE7?pid=ImgDet&rs=1" height="400" width="500">
+          <p style="font-size: 18px;" class="projName">Medix Summer 2021 REU Program</p>
+          <p style="font-size: 14px;">Used Tensorflow to build a convolutional neural network for classification <br> of age-related macular degeneration using OCT retinal scans.</p>
+          <button class="button" data-toggle="modal" data-target="#project3Modal">Learn More</button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="project3Modal" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Medix Summer 2021 REU Program</h4>
+                </div>
+                <div class="modal-body">
+                  <p>More project three description.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
       </div>
 
      </div>
