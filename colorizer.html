@@ -43,6 +43,14 @@
             margin-left: auto;
             margin-right: auto;
             width: 50%;}
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;}
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;}
       </style>
 </head>
 </head>
@@ -106,71 +114,121 @@
 </div>
   
   <h2>Results</h2>
+    
+    <div class = "row">
+        <div class = "column">
   <figure>
   <img src="imgs/output.jpg" alt="cathedral" height="300" width="375">
     <figcaption>cathedral G[-1, 1] R[1, 10]</figcaption>
-</figure>
+ </figure>
+        </div>
+    <div class = "column">
   <figure>
   <img src="imgs/lady_output.jpg" alt="lady" height="300" width="375">
     <figcaption>lady G[-6, 57] R[-16, 123]</figcaption>
 </figure>
+        </div>
+    </div>
+    
+    <div class = "row">
+        <div class = "column">
   <figure>
   <img src="imgs/monestary_output.jpg" alt="monestary" height="300" width="375">
     <figcaption>monestary G[2, 2] R[0, 2]</figcaption>
 </figure>
+        </div>
   <figure>
   <img src="imgs/emir_output.jpg" alt="emir" height="300" width="375">
     <figcaption>emir G[9, 44] R[17, 107]</figcaption>
 </figure>
+            </div>
+    </div>
+    
+<div class = "row">
+        <div class = "column">
   <figure>
   <img src="imgs/harvesters_output.jpg" alt="harvesters" height="300" width="375">
     <figcaption>harvesters G[63, 18] R[120, 13]</figcaption>
 </figure>
+    </div>
   <figure>
   <img src="imgs/church_output.jpg" alt="church" height="300" width="375">
     <figcaption>church G[4, 25] R[-4, 58]</figcaption>
 </figure>
+     </div>
+    </div>
+    
+<div class = "row">
+        <div class = "column">
   <figure>
   <img src="imgs/icon_output.jpg" alt="icon" height="300" width="375">
     <figcaption>icon G[39, 21] R[82, 20]</figcaption>
 </figure>
+    </div>
   <figure>
   <img src="imgs/melons_output.jpg" alt="melons" height="300" width="375">
     <figcaption>melons G[4, 81] R[8, 178]</figcaption>
 </figure>
+    </div>
+    </div>
+    
+<div class = "row">
+        <div class = "column">
   <figure>
   <img src="imgs/onion_church_output.jpg" alt="onion_church" height="300" width="375">
     <figcaption>onion church G[27, 51] R[36, 108]</figcaption>
 </figure>
+    </div>
   <figure>
   <img src="imgs/self_portrait_output.jpg" alt="self_portrait" height="300" width="375">
   <figcaption>self portrait G[31, 82] R[36, 174]</figcaption>
 </figure>
+    </div>
+    </div>
+    
+<div class = "row">
+        <div class = "column">
   <figure>
   <img src="imgs/sculpture_output.jpg" alt="sculpture" height="300" width="375">
   <figcaption>sculpture G[0, 20] R[-20, 95]</figcaption>
 </figure>
+    </div>
   <figure>
-  <img src="imgs/three_generation_output.jpg" alt="three_generation" height="300" width="375">
+  <img src="imgs/three_generations_output.jpg" alt="three_generation" height="300" width="375">
   <figcaption>three generation G[6, 52] R[8, 111]</figcaption>
 </figure>
+            </div>
+    </div>
+    
+<div class = "row">
+        <div class = "column">
   <figure>
   <img src="imgs/train_output.jpg" alt="train" height="300" width="375">
   <figcaption>train G[55, 7] R[90, 30]</figcaption>
 </figure>
+    </div>
   <figure>
   <img src="imgs/tobolsk_output.jpg" alt="tobolsk" height="300" width="375">
   <figcaption>tobolsk G[0, 10] R[5, 5]</figcaption>
 </figure>
+    </div>
+    </div>
+    
 <h2>Before & After</h2>
+    
+<div class = "row">
+        <div class = "column">
 <figure>
     <img src="imgs/emir_before.jpg" alt="before" height="300" width="375">
       <figcaption>emir.tif before</figcaption>
   </figure>
+    </div>
   <figure>
     <img src="imgs/emir_output.jpg" alt="after" height="300" width="375">
       <figcaption>emir.tif after</figcaption>
   </figure>
+    </div>
+    </div>
   
 </body>
 </html>
