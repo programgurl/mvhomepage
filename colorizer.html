@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>CS 194-26: Image Manipulation and Computational Photography, Fall 2022</h1>
+  <h2>Fall 2022</h2>
+  <h3>Mariana Vasquez</h3>
+  
+
+<h2>Introduction</h2>
+<p>The objective of the project is to come up with an efficient algorithm that aligns the RGB color channels of a set of images.
+  The Prokudin-Gorskii Collection contains copies of glass plates where each image is compromised of seperate filters. The idea
+  here is that the color filters combined together will help colorize black and white images. The general implementation consists
+  of seperating the color channels, blurring, edge detection, and exhastive search over the image to find the horizontal and
+  vertical displacement that aligns the channels best. In order to do this, we choose the blue channel to stay fixed while the
+  red and green channel are shifted in the x and y direction and evaluated with a function such as L2 norm or NNC. These functions
+  tell us give a score of how similar a set of images are so that we can identify the correct displacement. </p>
+  
+  <h2>Algorithm Overview</h2>
+  <p>After the color channels are seperated, a Gaussian filter is used to blur the image. The purpose of blurring the image is to
+  denoise the image before applying edge detection. Edge detection is also necessary due to the fact that the different color
+  channels have different intensities in the same regions. Therefore, when we apply edge detection, we force the different color
+  channels to display the same image. The only step left is to shift them till the channels are aligned.</p>
+  
+  <p>For this part, we make use of exhastive search. The exhastive search consists of for loops that use the np.roll function
+  to try out different combinations of shifts on the the input color channel and compare it to the fixed color channel. The
+  L2 norm for the shifted color channel and fixed channel is then calculated and added to a list. At the end, the set of shifts
+  with the lowest L2 norm value is identified and the shifts are then applied to the original red and green channels. Finally,
+  the channels are stacked to form a colorized image. </p>
+  
+  <h2>Pyrimad Search</h2>
+  <p>While the exhastive search approach works for smaller images, larger images with sizeable displacements take too long with
+  this approach. For these images, we need to find a more efficient way of identifying the approriate shifts. The pyrimad search
+  algorithm offers a recursive approach to solving this problem. The base case is an image of less than 200 pixels of height
+  and width. In this case, we can test shifts of roughly 15% the size of the image without worrying that the algorithm will take
+  too long to run. However, in the case that the height or width of an input image is larger than 200 pixels, the image is rescaled
+  to half the size and called again recursively until the base case is hit. The shifts returned by the base case are then used by
+  the image that is twice the size to provide a clue around where to check for the best displacement. We only have to look in the
+  range of -5 or +5 the returned shift values for each time the image size is doubled.</p>
+  
+  <h2>Problems Encountered</h2>
+  <p></p>
+
+</body>
+</html>
