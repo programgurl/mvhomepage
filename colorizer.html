@@ -36,10 +36,71 @@
   too long to run. However, in the case that the height or width of an input image is larger than 200 pixels, the image is rescaled
   to half the size and called again recursively until the base case is hit. The shifts returned by the base case are then used by
   the image that is twice the size to provide a clue around where to check for the best displacement. We only have to look in the
-  range of -5 or +5 the returned shift values for each time the image size is doubled.</p>
+  range of -3 or +3 the returned shift values for each time the image size is doubled.</p>
   
   <h2>Problems Encountered</h2>
-  <p></p>
-
+  <p>I had a problem with getting the code to run a reasonable amount of time. It would often take far too long to execute so I had
+  to only look at the inner part of the image and cut off 15% at the sides so that the borders would not mess with the elignment and
+  also to save time. There were also times for the larger images when I had to play around with the range and also with the step of
+  the range for the displacement for the exhaustive search to work faster.</p>
+  
+  <h2>Results</h2>
+  <figure>
+  <img src="output.jpg" alt="cathedral">
+    <figcaption>cathedral G[-1, 1] R[1, 10]</figcaption>
+</figure>
+  <figure>
+  <img src="lady_output.jpg" alt="lady">
+    <figcaption>lady G[52, 10] R[109, 10]</figcaption>
+</figure>
+  <figure>
+  <img src="monestary_output.jpg" alt="monestary">
+    <figcaption>monestary G[2, 2] R[0, 2]</figcaption>
+</figure>
+  <figure>
+  <img src="emir_output.jpg" alt="emir">
+    <figcaption>emir G[51, 20] R[52, -290]</figcaption>
+</figure>
+  <figure>
+  <img src="harvesters_output.jpg" alt="harvesters">
+    <figcaption>harvesters G[63 18] R[120 13]</figcaption>
+</figure>
+  <figure>
+  <img src="church_output.jpg" alt="church">
+    <figcaption>church G</figcaption>
+</figure>
+  <figure>
+  <img src="icon_output.jpg" alt="icon">
+    <figcaption>icon G[39 21] R[82 20]</figcaption>
+</figure>
+  <figure>
+  <img src="melons_output.jpg" alt="melons">
+    <figcaption>melons G[-1, 1] R[1, 10]</figcaption>
+</figure>
+  <figure>
+  <img src="onion_church_output.jpg" alt="onion_church">
+    <figcaption>onion church G[-1, 1] R[1, 10]</figcaption>
+</figure>
+  <figure>
+  <img src="self_portrait_output.jpg" alt="self_portrait">
+  <figcaption>self portrait G[78 31] R[180 37]</figcaption>
+</figure>
+  <figure>
+  <img src="sculpture_output.jpg" alt="sculpture">
+  <figcaption>sculpture G[0, 20] R[-20, 95]</figcaption>
+</figure>
+  <figure>
+  <img src="three_generation_output.jpg" alt="three_generation">
+  <figcaption>three generation G[50, 22] R[111, 4]</figcaption>
+</figure>
+  <figure>
+  <img src="train_output.jpg" alt="train">
+  <figcaption>train G[55, 7] R[90, 30]</figcaption>
+</figure>
+  <figure>
+  <img src="tobolsk_output.jpg" alt="tobolsk">
+  <figcaption>tobolsk G[0, 10] R[5, 5]</figcaption>
+</figure>
+  
 </body>
 </html>
