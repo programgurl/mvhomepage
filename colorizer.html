@@ -1,48 +1,129 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>CS194 Project 1</title>
+    <style type="text/css">
+        body {
+          /* font-family: Georgia, Times, serif; */
+          font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+          background-color: White;
+          margin: 0 auto;}
+        #one {
+            margin: 2% 5% 2%;
+            padding: 20px;
+            background: lightblue;
+            display: flex;
+            flex-direction: column;}
+        #two {
+            margin: 2% 5% 2%;
+            padding: 20px;
+            background: lightblue;
+            display: flex;
+            flex-direction: column;}
+        #three {
+            margin: 2% 5% 2%;
+            padding: 20px;
+            background: lightblue;
+            display: flex;
+            flex-direction: column;}
+        #four {
+            margin: 2% 5% 2%;
+            padding: 20px;
+            background: lightblue;
+            display: flex;
+            flex-direction: column;}
+        #five {
+            margin: 2% 5% 2%;
+            padding: 20px;
+            background: lightblue;
+            display: flex;
+            flex-direction: column;}
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;}
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+      </style>
+</head>
+</head>
 <body>
 
-<h1>CS 194-26: Image Manipulation and Computational Photography, Fall 2022</h1>
+<div id="one">
+<h1>CS 194-26: Image Manipulation and Computational Photography</h1>
   <h2>Fall 2022</h2>
   <h3>Mariana Vasquez</h3>
-  
+</div>
 
+<div id = "two">
 <h2>Introduction</h2>
 <p>The objective of the project is to come up with an efficient algorithm that aligns the RGB color channels of a set of images.
   The Prokudin-Gorskii Collection contains copies of glass plates where each image is compromised of seperate filters. The idea
-  here is that the color filters combined together will help colorize black and white images. The general implementation consists
-  of seperating the color channels, blurring, edge detection, and exhastive search over the image to find the horizontal and
-  vertical displacement that aligns the channels best. In order to do this, we choose the blue channel to stay fixed while the
-  red and green channel are shifted in the x and y direction and evaluated with a function such as L2 norm or NNC. These functions
-  tell us give a score of how similar a set of images are so that we can identify the correct displacement. </p>
+  here is that the color filters combined together will help colorize black and white images.  </p>
+<p>The general implementation consists
+    of seperating the color channels, blurring, edge detection, and exhastive search over the image to find the horizontal and
+    vertical displacement that aligns the channels best. In order to do this, we choose the blue channel to stay fixed while the
+    red and green channel are shifted in the x and y direction and evaluated with a function such as L2 norm or NNC. These functions
+    tell us give a score of how similar a set of images are so that we can identify the correct displacement.</p>
+</div>
+
+<div class="rowOne">
+    <div class="columnOne">
+      <img src="emir_blue.jpg" alt="blue" style="width:100%">
+    </div>
+    <div class="columnOne">
+      <img src="emir_red.jpg" alt="red" style="width:100%">
+    </div>
+    <div class="columnOne">
+      <img src="emir_green.jpg" alt="green" style="width:100%">
+    </div>
+  </div>
   
+<div id = "three">
   <h2>Algorithm Overview</h2>
   <p>After the color channels are seperated, a Gaussian filter is used to blur the image. The purpose of blurring the image is to
   denoise the image before applying edge detection. Edge detection is also necessary due to the fact that the different color
   channels have different intensities in the same regions. Therefore, when we apply edge detection, we force the different color
   channels to display the same image. The only step left is to shift them till the channels are aligned.</p>
-  
+  <p>Edge Detection: edge_detect = blurred_channel - channel</p>
   <p>For this part, we make use of exhastive search. The exhastive search consists of for loops that use the np.roll function
   to try out different combinations of shifts on the the input color channel and compare it to the fixed color channel. The
   L2 norm for the shifted color channel and fixed channel is then calculated and added to a list. At the end, the set of shifts
   with the lowest L2 norm value is identified and the shifts are then applied to the original red and green channels. Finally,
   the channels are stacked to form a colorized image. </p>
+  <p>L2 Norm: sum((img1_flattened - img2_flattened)^2)</p>
+
+</div>
   
+<div id = "four">
   <h2>Pyrimad Search</h2>
   <p>While the exhastive search approach works for smaller images, larger images with sizeable displacements take too long with
   this approach. For these images, we need to find a more efficient way of identifying the approriate shifts. The pyrimad search
   algorithm offers a recursive approach to solving this problem. The base case is an image of less than 200 pixels of height
-  and width. In this case, we can test shifts of roughly 15% the size of the image without worrying that the algorithm will take
+  and width. </p>
+  <p>In this case, we can test shifts of roughly 15% the size of the image without worrying that the algorithm will take
   too long to run. However, in the case that the height or width of an input image is larger than 200 pixels, the image is rescaled
   to half the size and called again recursively until the base case is hit. The shifts returned by the base case are then used by
   the image that is twice the size to provide a clue around where to check for the best displacement. We only have to look in the
   range of -3 or +3 the returned shift values for each time the image size is doubled.</p>
+</div>
   
+<div id = "five">
   <h2>Problems Encountered</h2>
   <p>I had a problem with getting the code to run a reasonable amount of time. It would often take far too long to execute so I had
-  to only look at the inner part of the image and cut off 15% at the sides so that the borders would not mess with the elignment and
+  to only look at the inner part of the image and cut off 5% at the sides so that the borders would not mess with the elignment and
   also to save time. There were also times for the larger images when I had to play around with the range and also with the step of
   the range for the displacement for the exhaustive search to work faster.</p>
+</div>
   
   <h2>Results</h2>
   <figure>
@@ -51,7 +132,7 @@
 </figure>
   <figure>
   <img src="lady_output.jpg" alt="lady">
-    <figcaption>lady G[52, 10] R[109, 10]</figcaption>
+    <figcaption>lady G[-6, 57] R[-16, 123]</figcaption>
 </figure>
   <figure>
   <img src="monestary_output.jpg" alt="monestary">
@@ -59,31 +140,31 @@
 </figure>
   <figure>
   <img src="emir_output.jpg" alt="emir">
-    <figcaption>emir G[51, 20] R[52, -290]</figcaption>
+    <figcaption>emir G[9, 44] R[17, 107]</figcaption>
 </figure>
   <figure>
   <img src="harvesters_output.jpg" alt="harvesters">
-    <figcaption>harvesters G[63 18] R[120 13]</figcaption>
+    <figcaption>harvesters G[63, 18] R[120, 13]</figcaption>
 </figure>
   <figure>
   <img src="church_output.jpg" alt="church">
-    <figcaption>church G</figcaption>
+    <figcaption>church G[4, 25] R[-4, 58]</figcaption>
 </figure>
   <figure>
   <img src="icon_output.jpg" alt="icon">
-    <figcaption>icon G[39 21] R[82 20]</figcaption>
+    <figcaption>icon G[39, 21] R[82, 20]</figcaption>
 </figure>
   <figure>
   <img src="melons_output.jpg" alt="melons">
-    <figcaption>melons G[-1, 1] R[1, 10]</figcaption>
+    <figcaption>melons G[4, 81] R[8, 178]</figcaption>
 </figure>
   <figure>
   <img src="onion_church_output.jpg" alt="onion_church">
-    <figcaption>onion church G[-1, 1] R[1, 10]</figcaption>
+    <figcaption>onion church G[27, 51] R[36, 108]</figcaption>
 </figure>
   <figure>
   <img src="self_portrait_output.jpg" alt="self_portrait">
-  <figcaption>self portrait G[78 31] R[180 37]</figcaption>
+  <figcaption>self portrait G[31, 82] R[36, 174]</figcaption>
 </figure>
   <figure>
   <img src="sculpture_output.jpg" alt="sculpture">
@@ -91,7 +172,7 @@
 </figure>
   <figure>
   <img src="three_generation_output.jpg" alt="three_generation">
-  <figcaption>three generation G[50, 22] R[111, 4]</figcaption>
+  <figcaption>three generation G[6, 52] R[8, 111]</figcaption>
 </figure>
   <figure>
   <img src="train_output.jpg" alt="train">
@@ -101,6 +182,15 @@
   <img src="tobolsk_output.jpg" alt="tobolsk">
   <figcaption>tobolsk G[0, 10] R[5, 5]</figcaption>
 </figure>
+<h2>Before & After</h2>
+<figure>
+    <img src="emir_before.jpg" alt="before">
+      <figcaption>emir.tif before</figcaption>
+  </figure>
+  <figure>
+    <img src="emir_output.jpg" alt="after">
+      <figcaption>emir.tif after</figcaption>
+  </figure>
   
 </body>
 </html>
