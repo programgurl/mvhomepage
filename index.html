@@ -1,304 +1,81 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Site</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom styles */
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 20px auto;
+      display: block;
+    }
+    .sidebar {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-right: 1px solid #dee2e6;
+    }
+  </style>
+</head>
+<body>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Your Name</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#cv">CV</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#interests">Interests</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<html>
-  <head>
-    <title>Mariana Vasquez</title>
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style type="text/css">
-      body {
-        /* font-family: Georgia, Times, serif; */
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        background-color: White;
-        margin: 0 auto;}
-      #home, #overlay {
-        position: relative;
-        height: 100vh;
-        overflow: hidden;}
-      #myVideo, #overlay {
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-        width: 100%;}
-      #overlay {
-        background: rgba(0, 0, 0, 0);
-        transform: translate(0, -50%);
-        z-index: 1;}
-      #overtext {
-        position: absolute;
-        color: white;
-        width: 25%;
-        top: 0;
-        transform: translate(30%, 150%);
-        z-index: 2;
-        }
-      #about {
-        margin: 10% 5% 10%;
-        padding: 5px;
-        background: lightblue;
-        display: flex;
-        flex-direction: row;}
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        /* background-color: #333; */
-        background-color: white;
-        position: fixed;
-        z-index: 3;
-        top: 0;
-        width: 100%;}
-      li {
-        float: right;
-        text-decoration: none}
-      li a {
-        display: block;
-        color: black;
-        text-align: center;
-        padding: 18px 16px;
-        text-decoration: none;}
-      li a:hover {
-        /* background-color: #111;} */
-        color: gray;}
-      #name {
-        float: left;}
-      .info {
-        padding: 5%;
-        text-align: center;}
-      
-      #projTitle {
-        margin-left: 5%;}
-      .projects {
-        margin-left: 0%;}
-      .project1 {
-        width: 65.75%;
-        /* margin: 5% auto; */
-        margin: 0% auto 5% auto;
-        padding-bottom: 5%;
-        background-color: lightpink;}
-      .project2 {
-        margin: 5% 5%;
-        padding-bottom: 2%;
-        background-color: lightsalmon;}
-      .project3 {
-        margin: 5% 5%;
-        padding-bottom: 2%;
-        background-color: lightseagreen;}
-      .project4 {
-      width: 65.75%;
-        /* margin: 5% auto; */
-        margin: 0% auto 5% auto;
-        padding-bottom: 5%;
-        background-color: lavender;}
-      .project2, .project3 {
-        display: inline-block;}
-      .project1 p, .project2 p, .project3 p, .project4 p {
-        padding-left: 20px;}  
-      .button {
-        float: right;
-        margin-right: 20px;
-        color: white;
-        background-color: #333;
-        border: #333;
-        padding: 8px;}
-      .button:hover {
-        color: black;
-        background-color: white;}
-      .projName {
-        padding-top: 7px;
-        color: white;}
-      /* .project1 img {
-        border: 5px solid rgb(57, 146, 182);
-        border-bottom: none;
-      } */
-      .project1, .project2, .project3, .project4 {
-        box-shadow: 0px 0px 2px grey;}
-      footer {
-        margin: 0;
-        padding: 14px 16px;
-        overflow: hidden;
-        background-color: #333;
-        color: white;
-        text-align: center;}
-      .typing {
-        overflow: hidden;
-        width: 4.5em;
-        border-right: 2px solid rgba(0, 0, 0, 0.75);
-        font-size: 32px;
-        white-space: nowrap;
-        animation: typewriter 2s steps(15) 1s 1 normal both,
-                   blinkTextCursor 1s steps(5) infinite normal;}
-      @keyframes typewriter {
-        from {
-          width: 0;}
-        to {
-          width: 4.5em;}}
-      @keyframes blinkTextCursor {
-        from {
-          border-right-color: rgba(0, 0, 0, 0.75);}
-        to {
-          border-right-color: transparent;}}
-    </style>
-  </head>
-  <body>
-    
-      <div id="nav">
-        <ul>
-          <li id="name"><a href="" style="text-decoration: none;">Mariana Vasquez</a></li>
-          <li><a href="#projects" style="text-decoration: none;">Projects</a></li>
-          <li><a href="#about" style="text-decoration: none;">About</a></li>
-          <li><a href="#home" style="text-decoration: none;">Home</a></li>
-        </ul>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar">
+        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+        <h4>Your Name</h4>
+        <p>Your Position</p>
+        <p>Your Location</p>
+        <a href="https://www.linkedin.com/">LinkedIn</a><br>
+        <a href="https://github.com/">GitHub</a>
       </div>
+    </div>
+    <div class="col-md-9">
+      <!-- Main content goes here -->
+      <h2 id="projects">Projects</h2>
+      <p>Your projects go here.</p>
 
-      <div id="home">
-<!--         <video autoplay muted loop id="myVideo">
-          <source src="imgs/beachpic.mp4">
-        </video> -->
-        <img src="imgs/MeAtBerkeley.JPG" id="myVideo">
-      </div>
+      <h2 id="cv">CV</h2>
+      <p>Your CV goes here.</p>
 
-      <div id="overlay">
-      </div>
+      <h2 id="interests">Interests</h2>
+      <p>Your interests go here.</p>
+    </div>
+  </div>
+</div>
 
-      <div id="overtext">
-        <p style="font-size: 40px;">hey there!</p>
-        <p style="font-size: 16px;">I'm Mariana, a sophmore at UC Berkeley and intended Computer Science major.</p>
-      </div>
-    
-      <div id="about">
-        <div class="me">
-<!--           <img src="https://img00.deviantart.net/9383/i/2011/214/a/9/the_shadow_at_the_beach_by_melir-d42p51n.jpg" id="mypic" height="300" width="300"> -->
-        </div>
-        <div class="info">
-          <div class="typing">
-             about me
-          </div>
-          <p>
-            I'm Mariana, a sophmore at UC Berkeley and intended Computer Science major. At the moment, my academic interests include artificial intelligence research, cs theory, and applied mathematics. Outside of academics, I spend my free time practicing classical pieces on my piano, reading fiction, or working on side projects.
-          </p>
-          <p>
-            You can reach me at <a href="mailto:marianavasquez@berkeley.edu" style="text-decoration: none;">marianavasquez@berkeley.edu</a>!
-          </p>
-        </div>
-      </div>
-    
-     <p style="font-size: 32px;" id="projTitle">projects</p>
-     <div class="projects">
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-      <div class="project1">
-        
-          <img src="imgs/DataChallenge.png" alt="UCSD Data Challenge" height="555" width="830">
-          <p style="font-size: 18px;" class="projName">Covid-19 US-Mexican Border Crossing Risk Assessor</p>
-          <p style="font-size: 14px;">Lead a team to design a website that focused on assessing risk of infection for various modes of transportation at the <br> U.S.-Mexican border.</p>
-          <button class="button" data-toggle="modal" data-target="#project1Modal">Learn More</button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="project1Modal" role="dialog">
-            <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">UCSD Data Challenge</h4>
-                </div>
-                <div class="modal-body">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/7IUOkQhziK0?start=2350" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  <p>More project one description.</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-
-      </div>
-
-      <div class="project2">
-        <!-- https://miro.medium.com/max/476/1*NX1uR7kPf5DKJHoAw3sUEQ.png -->
-        <!-- https://miro.medium.com/max/2732/1*Noiu-eKvub08g0dvCX0dMg.png -->
-        
-          <img src="https://miro.medium.com/max/2732/1*TVAh3LCEwXMOYGPMrD9Abg.png" height="400" width="500">
-          <p style="font-size: 18px;" class="projName">Directed Reading Program</p>
-          <p style="font-size: 14px;">Built a clustering algorithm to group the x points from the heat equation at <br> time step t.</p>
-          <button class="button" data-toggle="modal" data-target="#project2Modal">Learn More</button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="project2Modal" role="dialog">
-            <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Directed Reading Program</h4>
-                </div>
-                <div class="modal-body">
-                  <p>During the Spring 2020 semester, I was a mentee at the Berkeley Mathematics Directed Reading Program. DRP is a reading program where undergraduate students are paired with graduate mentors from the mathematics department. The program aims to encourage motivated students to engage with mathematics in more depth than is possible in a classroom through independent reading projects. Students are also urged to learn how to take part in research conversations and public presentations. The program closed with a mentee presentation on my research findings. At the time, my graduate mentor and I are explored clustering algorithms, comparing methods such as k-means or spectral clustering methods.</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-
-      </div>
-
-      <div class="project3">
-        
-          <img src="https://th.bing.com/th/id/OIP.p9cwmepna-2TVXTRnIPS6gHaE7?pid=ImgDet&rs=1" height="400" width="500">
-          <p style="font-size: 18px;" class="projName">Medix Summer 2021 REU Program</p>
-          <p style="font-size: 14px;">Used Tensorflow to build a convolutional neural network for classification <br> of age-related macular degeneration using OCT retinal scans.</p>
-          <button class="button" data-toggle="modal" data-target="#project3Modal">Learn More</button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="project3Modal" role="dialog">
-            <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Medix Summer 2021 REU Program</h4>
-                </div>
-                <div class="modal-body">
-                  <p>Throughout the summer, I participated in the MedIX (Medical Informatics) REU, a 10 week program jointly held by the University of Chicago and DePaul University. I spent the summer building a CNN for optical coherence tomography (OCT) image classification of age-related macular degeneration. Deep learning (DL) models are often criticized for being opaque, so previous studies have attempted to make DL models more explainable using saliency maps. These models have revealed a tendency to make classification decisions based on irrelevant regions in the image. Consequently, the goal of my project was to incorporate expert annotations marking relevant region(s) for classification into the training process with the aim of correcting the model’s region(s) of focus. I wrote an extended abstract for the SPIE conference based on the results I collected over the summer and gave a final presentation at the closing of the program. To build the neural network, I learned to use Tensorflow and Keras API. Additionally, I familiarized myself with Numpy, OpenCV, Scikit-learn, and other Python libraries.</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-
-      </div>
-       
-      <div class="project4">
-        
-          <img src="https://www.loc.gov/static/collections/prokudin-gorskii/images/featured-bukhara2.jpg" height="400" width="500">
-          <p style="font-size: 18px;" class="projName">CS194 Projects</p>
-          <p style="font-size: 14px;">Computer Vision projects page.</p>
-        
-          <form action="colorizer.html">
-            <button class="button" data-toggle="modal" data-target="#project4Modal">Learn More</button>
-          </form>
-       </div>
-
-     </div>
-
-    <footer>
-      Jul 2021 | Mariana Vasquez
-    </footer>
-  </body>
- </html>
-  
+</body>
+</html>
