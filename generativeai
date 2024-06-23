@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariana Vasquez</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-xxxxx" crossorigin="anonymous">
+  <style>
+    /* Custom styles */
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 20px auto;
+      display: block;
+    }
+    .sidebar {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-right: 1px solid #dee2e6;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Mariana Vasquez</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#cv">CV</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#interests">Interests</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar">
+        <img src="/imgs/square_pic.jpg" alt="Profile Picture" class="profile-pic">
+        <h4>Mariana Vasquez</h4>
+        <p>CS @ UC Berkeley </p>
+          <p><i class="fa fa-map-marker"></i> Berkeley, CA</p>
+        <a href="https://www.linkedin.com/in/mariana-vasquez-779469183/"><i class="fa fa-linkedin"></i> LinkedIn</a><br>
+        <a href="https://github.com/marivasq/"><i class="fa fa-github"></i> GitHub</a>
+      </div>
+    </div>
+
+<div class="col-md-9">
+      <!-- Main content goes here -->
+      <h2 id="about">Generative AI Influencer</h2>
+      <p>After coming across the website for an AI modeling agency named The Clueless, I decided to challenge myself to create an AI influencer of my own.
+      </p>
+      <p>The goal of the project is to generate high quality images of the same person in any desired setting. Generative AI tools such as DALLE or Midjourney can generate highly creative and diverse images, but often struggle to generate images that are realistic and accurate.
+      </p>
+</div>
+<footer class="bg-dark text-light py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Contact Information</h5>
+        <p>Email: marianavasquez@berkeley.edu</p>
+      </div>
+      <div class="col-md-6">
+        <h5>Follow Me</h5>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://www.linkedin.com/in/mariana-vasquez-779469183/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li class="list-inline-item"><a href="https://github.com/marivasq/"><i class="fab fa-github"></i> GitHub</a></li>
+          <!-- Add more social media icons and links as needed -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body>
+</html>
