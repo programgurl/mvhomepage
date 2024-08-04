@@ -1,266 +1,209 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colorizer</title>
     <!-- Bootstrap CSS -->
-      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-xxxxx" crossorigin="anonymous">
-      <style>
-    /* Custom styles */
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin: 20px auto;
-      display: block;
-    }
-    .sidebar {
-      background-color: #f8f9fa;
-      padding: 20px;
-      border-right: 1px solid #dee2e6;
-    }
-  </style>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha384-xxxxx" crossorigin="anonymous">
+    <style>
+        /* Custom styles */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .sidebar {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-right: 1px solid #dee2e6;
+        }
+    </style>
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="/index.html">Mariana Vasquez</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/index.html">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/index.html">CV</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/index.html">Interests</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div>
-<h1>Image Manipulation and Computational Photography</h1>
-    <!-- CS 194-26 Fall 2022 -->
-  <h3>Mariana Vasquez</h3>
-</div>
-
-<div>
-<h2>Intro</h2>
-<p>The objective of the project is to come up with an efficient algorithm that aligns the RGB color channels of a set of images.
-  The Prokudin-Gorskii Collection contains copies of glass plates where each image is compromised of seperate filters. The idea
-  here is that the color filters combined together will help colorize black and white images.  </p>
-<p>The general implementation consists
-    of seperating the color channels, blurring, edge detection, and exhastive search over the image to find the horizontal and
-    vertical displacement that aligns the channels best. In order to do this, we choose the blue channel to stay fixed while the
-    red and green channel are shifted in the x and y direction and evaluated with a function such as L2 norm or NNC. These functions
-    tell us give a score of how similar a set of images are so that we can identify the correct displacement.</p>
-</div>
-
-      <img src="imgs/for_website.jpg" alt="for website" class="center" height="350" width="225">
-  
-<div >
-  <h2>Algorithm Overview</h2>
-  <p>After the color channels are seperated, a Gaussian filter is used to blur the image. The purpose of blurring the image is to
-  denoise the image before applying edge detection. Edge detection is also necessary due to the fact that the different color
-  channels have different intensities in the same regions. Therefore, when we apply edge detection, we force the different color
-  channels to display the same image. The only step left is to shift them till the channels are aligned.</p>
-  <p>Edge Detection: edge_detect = blurred_channel - channel</p>
-  <p>For this part, we make use of exhastive search. The exhastive search consists of for loops that use the np.roll function
-  to try out different combinations of shifts on the the input color channel and compare it to the fixed color channel. The
-  L2 norm for the shifted color channel and fixed channel is then calculated and added to a list. At the end, the set of shifts
-  with the lowest L2 norm value is identified and the shifts are then applied to the original red and green channels. Finally,
-  the channels are stacked to form a colorized image. </p>
-  <p>L2 Norm: sum((img1_flattened - img2_flattened)^2)</p>
-
-</div>
-  
-<div>
-  <h2>Pyramid Search</h2>
-  <p>While the exhastive search approach works for smaller images, larger images with sizeable displacements take too long with
-  this approach. For these images, we need to find a more efficient way of identifying the approriate shifts. The pyrimad search
-  algorithm offers a recursive approach to solving this problem. The base case is an image of less than 200 pixels of height
-  and width. </p>
-  <p>In this case, we can test shifts of roughly 15% the size of the image without worrying that the algorithm will take
-  too long to run. However, in the case that the height or width of an input image is larger than 200 pixels, the image is rescaled
-  to half the size and called again recursively until the base case is hit. The shifts returned by the base case are then used by
-  the image that is twice the size to provide a clue around where to check for the best displacement. We only have to look in the
-  range of -3 or +3 the returned shift values for each time the image size is doubled.</p>
-</div>
-  
-<div>
-  <h2>Problems Encountered</h2>
-  <p>I had a problem with getting the code to run a reasonable amount of time. It would often take far too long to execute so I had
-  to only look at the inner part of the image and cut off 5% at the sides so that the borders would not mess with the elignment and
-  also to save time. There were also times for the larger images when I had to play around with the range and also with the step of
-  the range for the displacement for the exhaustive search to work faster.</p>
-</div>
-  
-  <h2>Results</h2>
-    
-    <div class = "row">
-        <div class = "column">
-  <figure>
-  <img src="imgs/output.jpg" alt="cathedral" height="300" width="375">
-    <figcaption>cathedral G[-1, 1] R[1, 10]</figcaption>
- </figure>
-        </div>
-    <div class = "column">
-  <figure>
-  <img src="imgs/lady_output.jpg" alt="lady" height="300" width="375">
-    <figcaption>lady G[-6, 57] R[-16, 123]</figcaption>
-</figure>
-        </div>
-    </div>
-    
-    <div class = "row">
-        <div class = "column">
-  <figure>
-  <img src="imgs/monestary_output.jpg" alt="monestary" height="300" width="375">
-    <figcaption>monestary G[2, 2] R[0, 2]</figcaption>
-</figure>
-        </div>
-  <figure>
-  <img src="imgs/emir_output.jpg" alt="emir" height="300" width="375">
-    <figcaption>emir G[9, 44] R[17, 107]</figcaption>
-</figure>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">Mariana Vasquez</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Interests</a>
+                    </li>
+                </ul>
             </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1>Image Manipulation and Computational Photography</h1>
+        <h3>Mariana Vasquez</h3>
     </div>
-    
-<div class = "row">
-        <div class = "column">
-  <figure>
-  <img src="imgs/harvesters_output.jpg" alt="harvesters" height="300" width="375">
-    <figcaption>harvesters G[63, 18] R[120, 13]</figcaption>
-</figure>
+
+    <div class="container">
+        <h2>Intro</h2>
+        <p>The objective of the project is to come up with an efficient algorithm that aligns the RGB color channels of a set of images. The Prokudin-Gorskii Collection contains copies of glass plates where each image is comprised of separate filters. The idea here is that the color filters combined together will help colorize black and white images.</p>
+        <p>The general implementation consists of separating the color channels, blurring, edge detection, and exhaustive search over the image to find the horizontal and vertical displacement that aligns the channels best. In order to do this, we choose the blue channel to stay fixed while the red and green channels are shifted in the x and y direction and evaluated with a function such as L2 norm or NNC. These functions give us a score of how similar a set of images are so that we can identify the correct displacement.</p>
     </div>
-  <figure>
-  <img src="imgs/church_output.jpg" alt="church" height="300" width="375">
-    <figcaption>church G[4, 25] R[-4, 58]</figcaption>
-</figure>
-     </div>
+
+    <div class="container text-center my-4">
+        <img src="imgs/for_website.jpg" alt="for website" class="img-fluid" style="max-height: 350px;">
     </div>
-    
-<div class = "row">
-        <div class = "column">
-  <figure>
-  <img src="imgs/icon_output.jpg" alt="icon" height="300" width="375">
-    <figcaption>icon G[39, 21] R[82, 20]</figcaption>
-</figure>
+
+    <div class="container">
+        <h2>Algorithm Overview</h2>
+        <p>After the color channels are separated, a Gaussian filter is used to blur the image. The purpose of blurring the image is to denoise the image before applying edge detection. Edge detection is also necessary due to the fact that the different color channels have different intensities in the same regions. Therefore, when we apply edge detection, we force the different color channels to display the same image. The only step left is to shift them till the channels are aligned.</p>
+        <p>Edge Detection: edge_detect = blurred_channel - channel</p>
+        <p>For this part, we make use of exhaustive search. The exhaustive search consists of for loops that use the np.roll function to try out different combinations of shifts on the input color channel and compare it to the fixed color channel. The L2 norm for the shifted color channel and fixed channel is then calculated and added to a list. At the end, the set of shifts with the lowest L2 norm value is identified and the shifts are then applied to the original red and green channels. Finally, the channels are stacked to form a colorized image.</p>
+        <p>L2 Norm: sum((img1_flattened - img2_flattened)^2)</p>
     </div>
-  <figure>
-  <img src="imgs/melons_output.jpg" alt="melons" height="300" width="375">
-    <figcaption>melons G[4, 81] R[8, 178]</figcaption>
-</figure>
+
+    <div class="container">
+        <h2>Pyramid Search</h2>
+        <p>While the exhaustive search approach works for smaller images, larger images with sizeable displacements take too long with this approach. For these images, we need to find a more efficient way of identifying the appropriate shifts. The pyramid search algorithm offers a recursive approach to solving this problem. The base case is an image of less than 200 pixels of height and width.</p>
+        <p>In this case, we can test shifts of roughly 15% the size of the image without worrying that the algorithm will take too long to run. However, in the case that the height or width of an input image is larger than 200 pixels, the image is rescaled to half the size and called again recursively until the base case is hit. The shifts returned by the base case are then used by the image that is twice the size to provide a clue around where to check for the best displacement. We only have to look in the range of -3 or +3 the returned shift values for each time the image size is doubled.</p>
     </div>
+
+    <div class="container">
+        <h2>Problems Encountered</h2>
+        <p>I had a problem with getting the code to run in a reasonable amount of time. It would often take far too long to execute, so I had to only look at the inner part of the image and cut off 5% at the sides so that the borders would not mess with the alignment and also to save time. There were also times for the larger images when I had to play around with the range and also with the step of the range for the displacement for the exhaustive search to work faster.</p>
     </div>
-    
-<div class = "row">
-        <div class = "column">
-  <figure>
-  <img src="imgs/onion_church_output.jpg" alt="onion_church" height="300" width="375">
-    <figcaption>onion church G[27, 51] R[36, 108]</figcaption>
-</figure>
-    </div>
-  <figure>
-  <img src="imgs/self_portrait_output.jpg" alt="self_portrait" height="300" width="375">
-  <figcaption>self portrait G[31, 82] R[36, 174]</figcaption>
-</figure>
-    </div>
-    </div>
-    
-<div class = "row">
-        <div class = "column">
-  <figure>
-  <img src="imgs/sculpture_output.jpg" alt="sculpture" height="300" width="375">
-  <figcaption>sculpture G[-11, 33] R[-26, 139]</figcaption>
-</figure>
-    </div>
-  <figure>
-  <img src="imgs/three_generations_output.jpg" alt="three_generation" height="300" width="375">
-  <figcaption>three generation G[6, 52] R[8, 111]</figcaption>
-</figure>
+
+    <div class="container">
+        <h2>Results</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/output.jpg" alt="cathedral" class="img-fluid">
+                    <figcaption>cathedral G[-1, 1] R[1, 10]</figcaption>
+                </figure>
             </div>
-    </div>
-    
-<div class = "row">
-        <div class = "column">
-  <figure>
-  <img src="imgs/train_output.jpg" alt="train" height="300" width="375">
-  <figcaption>train G[-2, 40] R[29, 84]</figcaption>
-</figure>
-    </div>
-  <figure>
-  <img src="imgs/tobolsk_output.jpg" alt="tobolsk" height="300" width="375">
-  <figcaption>tobolsk G[0, 10] R[5, 5]</figcaption>
-</figure>
-    </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/lady_output.jpg" alt="lady" class="img-fluid">
+                    <figcaption>lady G[-6, 57] R[-16, 123]</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/monestary_output.jpg" alt="monestary" class="img-fluid">
+                    <figcaption>monestary G[2, 2] R[0, 2]</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/emir_output.jpg" alt="emir" class="img-fluid">
+                    <figcaption>emir G[9, 44] R[17, 107]</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/harvesters_output.jpg" alt="harvesters" class="img-fluid">
+                    <figcaption>harvesters G[63, 18] R[120, 13]</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/church_output.jpg" alt="church" class="img-fluid">
+                    <figcaption>church G[4, 25] R[-4, 58]</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/icon_output.jpg" alt="icon" class="img-fluid">
+                    <figcaption>icon G[39, 21] R[82, 20]</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/melons_output.jpg" alt="melons" class="img-fluid">
+                    <figcaption>melons G[4, 81] R[8, 178]</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/onion_church_output.jpg" alt="onion_church" class="img-fluid">
+                    <figcaption>onion church G[27, 51] R[36, 108]</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/self_portrait_output.jpg" alt="self portrait" class="img-fluid">
+                    <figcaption>self portrait G[0, 0] R[0, 0]</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/three_generations_output.jpg" alt="three_generations" class="img-fluid">
+                    <figcaption>three generations G[0, -6] R[0, -12]</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/toy_output.jpg" alt="toy" class="img-fluid">
+                    <figcaption>toy G[3, -3] R[6, -32]</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/workshop_output.jpg" alt="workshop" class="img-fluid">
+                    <figcaption>workshop G[0, -12] R[-12, -35]</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img src="imgs/train_output.jpg" alt="train" class="img-fluid">
+                    <figcaption>train G[0, 32] R[0, 87]</figcaption>
+                </figure>
+            </div>
+        </div>
     </div>
 
-<h2>Example Chosen Images</h2>
+    <footer class="footer bg-dark text-light py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 Mariana Vasquez. All rights reserved.</p>
+        </div>
+    </footer>
 
-<div class = "row">
-        <div class = "column">
-<figure>
-    <img src="imgs/sample_one_output.jpg" alt="sample one" height="300" width="375">
-      <figcaption>sample one G[3, 4] R[4, 9]</figcaption>
-  </figure>
-    </div>
-  <figure>
-    <img src="imgs/sample_two_output.jpg" alt="sample two" height="300" width="375">
-      <figcaption>sample two G[0, 6] R[-1, 13]</figcaption>
-  </figure>
-    </div>
-    </div>
-    
-<h2>Before & After</h2>
-    
-<div class = "row">
-        <div class = "column">
-<figure>
-    <img src="imgs/emir_before.jpg" alt="before" height="300" width="375">
-      <figcaption>emir.tif before</figcaption>
-  </figure>
-    </div>
-  <figure>
-    <img src="imgs/emir_output.jpg" alt="after" height="300" width="375">
-      <figcaption>emir.tif after</figcaption>
-  </figure>
-    </div>
-    </div>
-
-<footer class="bg-dark text-light py-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h5>Contact Information</h5>
-        <p>Email: marianavasquez@berkeley.edu</p>
-      </div>
-      <div class="col-md-6">
-        <h5>Follow Me</h5>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="https://www.linkedin.com/in/mariana-vasquez-779469183/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-          <li class="list-inline-item"><a href="https://github.com/marivasq/"><i class="fab fa-github"></i> GitHub</a></li>
-          <!-- Add more social media icons and links as needed -->
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
