@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple DAW</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Digital Audio Workstation</h1>
+    <button id="play">Play Sound</button>
+    <button id="stop">Stop Sound</button>
+
+    <script>
+        let audioContext;
+        let oscillator;
+
+        document.getElementById('play').addEventListener('click', () => {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // A4 note
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+        });
+
+        document.getElementById('stop').addEventListener('click', () => {
+            if (oscillator) {
+                oscillator.stop();
+                oscillator.disconnect();
+            }
+        });
+    </script>
+</body>
+</html>
