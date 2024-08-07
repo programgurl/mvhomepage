@@ -3,134 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple DAW with Media Import and Visualization</title>
+    <title>Simple Digital Audio Workstation</title>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f0f0f0;
+        .track {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
         }
-        button, input {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
+        .waveform {
+            width: 100%;
+            height: 128px;
         }
-        canvas {
-            border: 1px solid black;
-            margin-top: 20px;
+        .controls {
+            margin-top: 10px;
+        }
+        .controls button, .controls input {
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
     <h1>Simple Digital Audio Workstation</h1>
-    <button id="play">Play Sound</button>
-    <button id="stop">Stop Sound</button>
-    <label for="volume">Volume:</label>
-    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
-    <input type="file" id="fileInput" accept="audio/*">
-    <canvas id="visualizer" width="600" height="200"></canvas>
-    <p>Supported file types: MP3, WAV, OGG</p>
+    <input type="file" id="audioFile" accept="audio/*">
+    <button onclick="addTrack()">Add Track</button>
+    <div id="tracks"></div>
 
     <script>
-        let audioContext;
-        let source;
-        let gainNode;
-        let analyser;
-        let dataArray;
-        let bufferLength;
+        let trackCounter = 0;
 
-        document.getElementById('play').addEventListener('click', () => {
-            const fileInput = document.getElementById('fileInput');
-            if (fileInput.files.length === 0) {
-                alert('Please select an audio file first.');
-                return;
-            }
+        function addTrack() {
+            trackCounter++;
+            const trackId = `track${trackCounter}`;
+            const trackHtml = `
+                <div id="${trackId}" class="track">
+                    <div class="waveform"></div>
+                    <div class="controls">
+                        <input type="range" min="0" max="1" step="0.1" value="1" onInput="setVolume('${trackId}', this.value)">
+                        <button onclick="toggleMute('${trackId}')">Mute</button>
+                        <button onclick="toggleSolo('${trackId}')">Solo</button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('tracks').insertAdjacentHTML('beforeend', trackHtml);
+            
+            const wavesurfer = WaveSurfer.create({
+                container: `#${trackId} .waveform`,
+                waveColor: 'violet',
+                progressColor: 'purple'
+            });
+            
+            wavesurfer.on('ready', function() {
+                wavesurfer.play();
+            });
 
-            const file = fileInput.files[0];
-            const reader = new FileReader();
+            document.getElementById('audioFile').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                wavesurfer.loadBlob(file);
+            });
+        }
 
-            reader.onload = function(event) {
-                const arrayBuffer = event.target.result;
-                if (!audioContext) {
-                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                }
-                audioContext.decodeAudioData(arrayBuffer, (audioBuffer) => {
-                    source = audioContext.createBufferSource();
-                    gainNode = audioContext.createGain();
-                    analyser = audioContext.createAnalyser();
+        function setVolume(trackId, volume) {
+            const track = document.getElementById(trackId);
+            const wavesurfer = WaveSurfer.create({
+                container: `#${trackId} .waveform`
+            });
+            wavesurfer.setVolume(volume);
+        }
 
-                    source.buffer = audioBuffer;
-                    source.connect(gainNode);
-                    gainNode.connect(analyser);
-                    analyser.connect(audioContext.destination);
+        function toggleMute(trackId) {
+            const track = document.getElementById(trackId);
+            const wavesurfer = WaveSurfer.create({
+                container: `#${trackId} .waveform`
+            });
+            wavesurfer.toggleMute();
+        }
 
-                    analyser.fftSize = 2048;
-                    bufferLength = analyser.frequencyBinCount;
-                    dataArray = new Uint8Array(bufferLength);
-
-                    source.start();
-                    visualize();
+        function toggleSolo(trackId) {
+            const tracks = document.getElementsByClassName('track');
+            Array.from(tracks).forEach(track => {
+                const wavesurfer = WaveSurfer.create({
+                    container: `#${track.id} .waveform`
                 });
-            };
-
-            reader.readAsArrayBuffer(file);
-        });
-
-        document.getElementById('stop').addEventListener('click', () => {
-            if (source) {
-                source.stop();
-                source.disconnect();
-            }
-        });
-
-        document.getElementById('volume').addEventListener('input', (event) => {
-            if (gainNode) {
-                gainNode.gain.setValueAtTime(event.target.value, audioContext.currentTime);
-            }
-        });
-
-        function visualize() {
-            const canvas = document.getElementById('visualizer');
-            const canvasCtx = canvas.getContext('2d');
-
-            function draw() {
-                requestAnimationFrame(draw);
-
-                analyser.getByteTimeDomainData(dataArray);
-
-                canvasCtx.fillStyle = 'rgb(240, 240, 240)';
-                canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
-
-                canvasCtx.lineWidth = 2;
-                canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
-
-                canvasCtx.beginPath();
-
-                const sliceWidth = canvas.width * 1.0 / bufferLength;
-                let x = 0;
-
-                for (let i = 0; i < bufferLength; i++) {
-                    const v = dataArray[i] / 128.0;
-                    const y = v * canvas.height / 2;
-
-                    if (i === 0) {
-                        canvasCtx.moveTo(x, y);
-                    } else {
-                        canvasCtx.lineTo(x, y);
-                    }
-
-                    x += sliceWidth;
+                if (track.id === trackId) {
+                    wavesurfer.setVolume(1);
+                } else {
+                    wavesurfer.setVolume(0);
                 }
-
-                canvasCtx.lineTo(canvas.width, canvas.height / 2);
-                canvasCtx.stroke();
-            }
-
-            draw();
+            });
         }
     </script>
 </body>
