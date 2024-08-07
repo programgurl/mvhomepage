@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple DAW</title>
+    <title>Simple DAW with Media Import</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +14,7 @@
             height: 100vh;
             background-color: #f0f0f0;
         }
-        button {
+        button, input {
             padding: 10px 20px;
             margin: 10px;
             font-size: 16px;
@@ -25,26 +25,54 @@
     <h1>Simple Digital Audio Workstation</h1>
     <button id="play">Play Sound</button>
     <button id="stop">Stop Sound</button>
+    <label for="volume">Volume:</label>
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
+    <input type="file" id="fileInput" accept="audio/*">
 
     <script>
         let audioContext;
-        let oscillator;
+        let source;
+        let gainNode;
 
         document.getElementById('play').addEventListener('click', () => {
-            if (!audioContext) {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length === 0) {
+                alert('Please select an audio file first.');
+                return;
             }
-            oscillator = audioContext.createOscillator();
-            oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // A4 note
-            oscillator.connect(audioContext.destination);
-            oscillator.start();
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const arrayBuffer = event.target.result;
+                if (!audioContext) {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                audioContext.decodeAudioData(arrayBuffer, (audioBuffer) => {
+                    source = audioContext.createBufferSource();
+                    gainNode = audioContext.createGain();
+
+                    source.buffer = audioBuffer;
+                    source.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    source.start();
+                });
+            };
+
+            reader.readAsArrayBuffer(file);
         });
 
         document.getElementById('stop').addEventListener('click', () => {
-            if (oscillator) {
-                oscillator.stop();
-                oscillator.disconnect();
+            if (source) {
+                source.stop();
+                source.disconnect();
+            }
+        });
+
+        document.getElementById('volume').addEventListener('input', (event) => {
+            if (gainNode) {
+                gainNode.gain.setValueAtTime(event.target.value, audioContext.currentTime);
             }
         });
     </script>
