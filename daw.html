@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple DAW with Media Import</title>
+    <title>Simple DAW with Media Import and Visualization</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,6 +19,10 @@
             margin: 10px;
             font-size: 16px;
         }
+        canvas {
+            border: 1px solid black;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -28,11 +32,16 @@
     <label for="volume">Volume:</label>
     <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
     <input type="file" id="fileInput" accept="audio/*">
+    <canvas id="visualizer" width="600" height="200"></canvas>
+    <p>Supported file types: MP3, WAV, OGG</p>
 
     <script>
         let audioContext;
         let source;
         let gainNode;
+        let analyser;
+        let dataArray;
+        let bufferLength;
 
         document.getElementById('play').addEventListener('click', () => {
             const fileInput = document.getElementById('fileInput');
@@ -52,11 +61,19 @@
                 audioContext.decodeAudioData(arrayBuffer, (audioBuffer) => {
                     source = audioContext.createBufferSource();
                     gainNode = audioContext.createGain();
+                    analyser = audioContext.createAnalyser();
 
                     source.buffer = audioBuffer;
                     source.connect(gainNode);
-                    gainNode.connect(audioContext.destination);
+                    gainNode.connect(analyser);
+                    analyser.connect(audioContext.destination);
+
+                    analyser.fftSize = 2048;
+                    bufferLength = analyser.frequencyBinCount;
+                    dataArray = new Uint8Array(bufferLength);
+
                     source.start();
+                    visualize();
                 });
             };
 
@@ -75,6 +92,46 @@
                 gainNode.gain.setValueAtTime(event.target.value, audioContext.currentTime);
             }
         });
+
+        function visualize() {
+            const canvas = document.getElementById('visualizer');
+            const canvasCtx = canvas.getContext('2d');
+
+            function draw() {
+                requestAnimationFrame(draw);
+
+                analyser.getByteTimeDomainData(dataArray);
+
+                canvasCtx.fillStyle = 'rgb(240, 240, 240)';
+                canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+                canvasCtx.lineWidth = 2;
+                canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+
+                canvasCtx.beginPath();
+
+                const sliceWidth = canvas.width * 1.0 / bufferLength;
+                let x = 0;
+
+                for (let i = 0; i < bufferLength; i++) {
+                    const v = dataArray[i] / 128.0;
+                    const y = v * canvas.height / 2;
+
+                    if (i === 0) {
+                        canvasCtx.moveTo(x, y);
+                    } else {
+                        canvasCtx.lineTo(x, y);
+                    }
+
+                    x += sliceWidth;
+                }
+
+                canvasCtx.lineTo(canvas.width, canvas.height / 2);
+                canvasCtx.stroke();
+            }
+
+            draw();
+        }
     </script>
 </body>
 </html>
