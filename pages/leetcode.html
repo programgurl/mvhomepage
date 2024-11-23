@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariana Vasquez</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-xxxxx" crossorigin="anonymous">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js"></script>
+  <style>
+    /* Code block styling */
+    pre {
+            background-color: #2d3e50;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            overflow-x: auto;
+            white-space: pre-wrap; /* Wraps long lines */
+            word-wrap: break-word; /* Breaks long words */
+            max-width: 90%;
+            margin: 20px auto;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Output styling */
+        #output {
+            font-size: 1.2em;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+        }
+  </style>
+  </head>
+  <body onload="brython()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">Mariana Vasquez</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Shortcut 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Shortcut 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Shortcut 3</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Leetcode & Interview Prep Guide</h2>
+
+                <p>
+                    I am writing this study guide as a possible resource to others doing interview prep and to track my own learning progress.
+                </p>
+                <p>
+                    Below I detail a step-by-by guide for acing the technical portion of SWE interviews (in Python).
+                </p>
+
+                <h4>The Fundamentals</h4>
+
+                <section id="programming-languages">
+                    <p>Programming Languages:</p>
+                    <ul>
+                      <li><strong>Python</strong> - We'll focus on this language for simplicity.</li>
+                    </ul>
+                    <p>Core CS Concepts:</p>
+                    <ul>
+                      <li><strong>Data Structures</strong>: Arrays, Linked Lists, Stacks, Queues, Trees, Graphs, Hash Maps.</li>
+                      <li><strong>Algorithms</strong>: Sorting, Searching, Recursion, Dynamic Programming, Backtracking.</li>
+                    </ul>
+                  </section>
+
+                  <h4>Data Structures</h4>
+
+                  <h6>Arrays</h6>
+                  <pre><code>
+                    def greet(name):
+                        return f"Hello, {name}!"
+                    
+                    print(greet("World"))
+                        </code></pre>
+
+                  <!-- Python Script -->
+                  <script type="text/python">
+                    from browser import document
+
+                    def greet(event):
+                        document["output"].text = "Hello from Brython!"
+
+                    # Bind greet function to a button click
+                    document["greet_button"].bind("click", greet)
+                  </script>
+
+                  <!-- Button to trigger Python function -->
+                  <button id="greet_button">Run</button>
+                  <p id="output"></p>
+
+
+                  <h4>Algorithms</h4>
+
+                  <h6>Sorting</h6>
+            </div>
+        </div>
+      </div>
+
+
+
+    
+      <footer class="bg-dark text-light py-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h5>Contact Information</h5>
+              <p>Email: marianavasquez@berkeley.edu</p>
+            </div>
+            <div class="col-md-6">
+              <h5>Follow Me</h5>
+              <ul class="list-inline">
+                <li class="list-inline-item"><a href="https://www.linkedin.com/in/mariana-vasquez-779469183/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                <li class="list-inline-item"><a href="https://github.com/marivasq/"><i class="fab fa-github"></i> GitHub</a></li>
+                <!-- Add more social media icons and links as needed -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+  </body>
+</html>
