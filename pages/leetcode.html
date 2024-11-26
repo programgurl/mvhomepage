@@ -53,7 +53,7 @@
   <body onload="brython()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="#">Mariana Vasquez</a>
+          <a class="navbar-brand" href="/index.html">Mariana Vasquez</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -101,29 +101,95 @@
 
                   <h4>Data Structures</h4>
 
-                  <h6>Arrays</h6>
-                  <pre><code>
-                    def greet(name):
-                        return f"Hello, {name}!"
-                    
-                    print(greet("World"))
-                        </code></pre>
+                  <h5>Arrays</h5>
 
-                  <!-- Python Script -->
-                  <script type="text/python">
-                    from browser import document
+                  <p>Here is a table with core methods for this data structure:</p>
 
-                    def greet(event):
-                        document["output"].text = "Hello from Brython!"
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Time Complexity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>append(value)</code></td>
+                        <td>Adds an item to the end of the list.</td>
+                        <td><code>my_list.append(5)</code></td>
+                        <td>O(1)</td>
+                      </tr>
+                      <tr>
+                        <td><code>extend(iterable)</code></td>
+                        <td>Adds all items from an iterable to the list.</td>
+                        <td><code>my_list.extend([1, 2, 3])</code></td>
+                        <td>O(k)</td>
+                      </tr>
+                      <tr>
+                        <td><code>insert(index, value)</code></td>
+                        <td>Inserts an item at a specified position.</td>
+                        <td><code>my_list.insert(1, "new")</code></td>
+                        <td>O(n)</td>
+                      </tr>
+                      <tr>
+                        <td><code>remove(value)</code></td>
+                        <td>Removes the first occurrence of a value.</td>
+                        <td><code>my_list.remove(2)</code></td>
+                        <td>O(n)</td>
+                      </tr>
+                      <tr>
+                        <td><code>pop(index=-1)</code></td>
+                        <td>Removes and returns the item at the specified position (default: last).</td>
+                        <td><code>my_list.pop()</code></td>
+                        <td>O(1) (last), O(n) (arbitrary index)</td>
+                      </tr>
+                      <tr>
+                        <td><code>clear()</code></td>
+                        <td>Removes all items from the list.</td>
+                        <td><code>my_list.clear()</code></td>
+                        <td>O(n)</td>
+                      </tr>
+                      <tr>
+                        <td><code>index(value, start=0, stop=None)</code></td>
+                        <td>Returns the index of the first occurrence of a value.</td>
+                        <td><code>my_list.index(3)</code></td>
+                        <td>O(n)</td>
+                      </tr>
+                      <tr>
+                        <td><code>count(value)</code></td>
+                        <td>Counts the occurrences of a value in the list.</td>
+                        <td><code>my_list.count(2)</code></td>
+                        <td>O(n)</td>
+                      </tr>
+                      <tr>
+                        <td><code>sort(key=None, reverse=False)</code></td>
+                        <td>Sorts the list in ascending order (or by key).</td>
+                        <td><code>my_list.sort()</code></td>
+                        <td>O(n log n)</td>
+                      </tr>
+                      <tr>
+                        <td><code>reverse()</code></td>
+                        <td>Reverses the elements of the list in place.</td>
+                        <td><code>my_list.reverse()</code></td>
+                        <td>O(n)</td>
+                      </tr>
+                    </tbody>
+                  </table>
 
-                    # Bind greet function to a button click
-                    document["greet_button"].bind("click", greet)
-                  </script>
+                  <p>I find the sort function with the use of the key to be the most useful of all the methods. So let's go over an example in detail.</p>
+                  
+                  <p><code>my_list.sort(key= lambda x: x)</code></p>
 
-                  <!-- Button to trigger Python function -->
-                  <button id="greet_button">Run</button>
-                  <p id="output"></p>
+                  <h6>Linked Lists</h6>
 
+
+                  <h6>Stacks</h6>
+                  <h6>Queues</h6>
+                  <h6>Trees</h6>
+                  <h6>Graphs</h6>
+                  <h6>Hash Maps</h6>
 
                   <h4>Algorithms</h4>
 
@@ -133,7 +199,27 @@
       </div>
 
 
+      <pre><code>
+        def greet(name):
+            return f"Hello, {name}!"
+        
+        print(greet("World"))
+            </code></pre>
 
+      <!-- Python Script -->
+      <script type="text/python">
+        from browser import document
+
+        def greet(event):
+            document["output"].text = "Hello from Brython!"
+
+        # Bind greet function to a button click
+        document["greet_button"].bind("click", greet)
+      </script>
+
+      <!-- Button to trigger Python function -->
+      <button id="greet_button">Run</button>
+      <p id="output"></p>
     
       <footer class="bg-dark text-light py-4">
         <div class="container">
