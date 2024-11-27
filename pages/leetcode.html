@@ -10,6 +10,19 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js"></script>
   <style>
     /* Code block styling */
+    .styled-table {
+    border: 2px solid black; /* Border around the table */
+    border-collapse: collapse; /* Ensures borders don’t double up */
+    width: 100%; /* Optional: Makes the table take full width */
+    }
+
+    .styled-table th, .styled-table td {
+        border: 1px solid black; /* Border around cells */
+        padding: 10px; /* Adds spacing inside the cells */
+        text-align: left; /* Aligns text to the left */
+    }
+
+
     pre {
             background-color: #2d3e50;
             color: #f8f8f2;
@@ -60,13 +73,13 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">Shortcut 1</a>
+                <a class="nav-link" href="#">The Fundamentals</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Shortcut 2</a>
+                <a class="nav-link" href="#">Data Structures</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Shortcut 3</a>
+                <a class="nav-link" href="#">Algorithms</a>
               </li>
             </ul>
           </div>
@@ -105,7 +118,7 @@
 
                   <p>Here is a table with core methods for this data structure:</p>
 
-                  <table>
+                  <table class="styled-table">
                     <thead>
                       <tr>
                         <th>Method</th>

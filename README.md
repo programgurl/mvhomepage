@@ -1,2 +1,2 @@
 Welcome to my site!
-See the finished producted here: https://marivasq.github.io/
+Check out some of my recent projects, resume, and interests here: https://marivasq.github.io/

@@ -3,162 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Digital Audio Workstation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/wavesurfer.js"></script>
-    <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.regions.min.js"></script>
-    <style>
-        .waveform {
-            width: 100%;
-            height: 128px;
-            position: relative;
-        }
-        .track-selected {
-            border: 2px solid #007bff; /* Highlight selected track with blue border */
-            background-color: #e9ecef;  /* Light grey background */
-        }
-        .region {
-            opacity: 0.4;
-            background-color: violet;
-        }
-    </style>
+    <title>Text-to-Sound-Effect Plugin Design Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-xxxxx" crossorigin="anonymous">
 </head>
-<body class="bg-light">
-    <div class="container mt-5">
-        <h1 class="mb-4">Simple Digital Audio Workstation</h1>
-        <div class="mb-3">
-            <input type="file" id="audioFile" accept="audio/*" class="form-control">
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/index.html">Mariana Vasquez</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#cv">CV</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#interests">Interests</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="mb-3">
-            <button onclick="addTrack()" class="btn btn-primary">Add Track</button>
-            <button id="playBtn" onclick="playAll()" class="btn btn-success">Play</button>
-            <button id="stopBtn" onclick="stopAll()" class="btn btn-danger">Stop</button>
-        </div>
-        <div class="waveform" id="timeline"></div>
-        <div id="tracks"></div>
+      </nav>
+
+    <div class="container mt-4">
+        <header class="text-center mb-4">
+            <h1 class="display-4"><i class="fas fa-music"></i> Text-to-Sound-Effect Plugin Tool</h1>
+            <p class="lead"><strong>Objective:</strong> Develop a DAW plugin that generates sound effects from textual descriptions using AI.</p>
+        </header>
+
+        <section class="mb-4">
+            <h2><i class="fas fa-lightbulb"></i> 1. Project Overview</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Primary Goal:</strong> Enable users to input descriptive text and receive a sound effect that matches the description.</li>
+                <li class="list-group-item"><strong>Scope:</strong>
+                    <ul>
+                        <li>NLP-based text processing for understanding user input.</li>
+                        <li>AI-powered sound synthesis or retrieval.</li>
+                        <li>Integration with DAWs (Ableton, Reaper) as a plugin (VST/AU).</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-4">
+            <h2><i class="fas fa-tasks"></i> 2. Functional Requirements</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Input:</strong>
+                    <ul>
+                        <li>A text box for user input.</li>
+                        <li>Preset text prompts for quick testing.</li>
+                    </ul>
+                </li>
+                <li class="list-group-item"><strong>Output:</strong>
+                    <ul>
+                        <li>Audio playback of the generated sound effect.</li>
+                        <li>Downloadable audio files in WAV/MP3 format.</li>
+                    </ul>
+                </li>
+                <li class="list-group-item"><strong>Plugin Features:</strong>
+                    <ul>
+                        <li>Real-time parameter adjustments (e.g., pitch, reverb, volume).</li>
+                        <li>Option to save presets for frequently used text inputs.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-4">
+            <h2><i class="fas fa-cogs"></i> 3. System Architecture</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Frontend:</strong>
+                    <ul>
+                        <li>User interface for DAW plugin (e.g., JUCE framework).</li>
+                        <li>Controls for text input, parameter adjustment, and playback.</li>
+                    </ul>
+                </li>
+                <li class="list-group-item"><strong>Backend:</strong>
+                    <ul>
+                        <li>Text Processing: NLP model (e.g., GPT, BERT) to interpret user input.</li>
+                        <li>Sound Processing:
+                            <ul>
+                                <li>Option 1: Pre-trained sound generation model (e.g., Diffusion, GAN).</li>
+                                <li>Option 2: Database of tagged sound effects for retrieval.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list-group-item"><strong>Storage:</strong>
+                    <ul>
+                        <li>Local storage for user presets and recent sound generations.</li>
+                        <li>Cloud storage for extensible sound databases (optional).</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-4">
+            <h2><i class="fas fa-laptop-code"></i> 4. Technology Stack</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Programming Languages: C++ (for plugin development with JUCE), Python (for AI components).</li>
+                <li class="list-group-item">Frameworks: JUCE for VST/AU development, PyTorch/TensorFlow for AI components.</li>
+                <li class="list-group-item">Libraries: librosa for audio analysis, Hugging Face Transformers for text processing, Soundfile for audio file handling.</li>
+            </ul>
+        </section>
+
+        <section class="mb-4">
+            <h2><i class="fas fa-calendar-alt"></i> 5. Development Plan</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Phase 1:</strong> Research and Planning</li>
+                <li class="list-group-item"><strong>Phase 2:</strong> Prototype Development</li>
+                <li class="list-group-item"><strong>Phase 3:</strong> AI Integration</li>
+                <li class="list-group-item"><strong>Phase 4:</strong> Testing and Refinement</li>
+                <li class="list-group-item"><strong>Phase 5:</strong> Deployment</li>
+            </ul>
+        </section>
+
+        <section class="mb-4">
+            <h2><i class="fas fa-exclamation-circle"></i> 6. Challenges and Risks</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Performance Issues: Ensuring low latency for real-time use.</li>
+                <li class="list-group-item">Model Accuracy: Achieving precise alignment between text input and sound output.</li>
+                <li class="list-group-item">Compatibility: Handling the quirks of different DAWs and operating systems.</li>
+                <li class="list-group-item">User Adoption: Designing an interface that appeals to a wide range of users.</li>
+            </ul>
+        </section>
+
+        <footer class="text-center mt-4">
+            <p>Created by Jenny | <i class="fas fa-code"></i> Powered by AI</p>
+        </footer>
     </div>
-
-    <script>
-        let trackCounter = 0;
-        let wavesurfer;
-        let selectedTrackId = null;
-        let regions = [];
-
-        // Initialize WaveSurfer with regions plugin for managing tracks
-        function initWaveSurfer() {
-            wavesurfer = WaveSurfer.create({
-                container: '#timeline',
-                waveColor: 'violet',
-                progressColor: 'purple',
-                height: 128,
-                plugins: [
-                    WaveSurfer.regions.create({})
-                ]
-            });
-        }
-
-        // Call the initialization function when the window loads
-        window.onload = function() {
-            initWaveSurfer();
-        };
-
-        function addTrack() {
-            trackCounter++;
-            const trackId = `track${trackCounter}`;
-            const trackHtml = `
-                <div id="${trackId}" class="card mb-3" onclick="selectTrack('${trackId}')">
-                    <div class="card-body">
-                        <div class="waveform"></div>
-                        <div class="mt-3">
-                            <input type="range" class="form-range" min="0" max="1" step="0.1" value="1" onInput="setVolume('${trackId}', this.value)">
-                            <div class="btn-group" role="group">
-                                <button onclick="toggleMute('${trackId}')" class="btn btn-outline-secondary">Mute</button>
-                                <button onclick="toggleSolo('${trackId}')" class="btn btn-outline-secondary">Solo</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            document.getElementById('tracks').insertAdjacentHTML('beforeend', trackHtml);
-
-            // Automatically select the track when it's created
-            selectTrack(trackId);
-        }
-
-        function selectTrack(trackId) {
-            if (selectedTrackId) {
-                document.getElementById(selectedTrackId).classList.remove('track-selected');
-            }
-            selectedTrackId = trackId;
-            document.getElementById(trackId).classList.add('track-selected');
-        }
-
-        document.getElementById('audioFile').addEventListener('change', function(e) {
-            if (!selectedTrackId) return; // No track selected, do nothing
-
-            const file = e.target.files[0];
-            const trackIndex = trackCounter; // To ensure unique region IDs
-
-            // Load the audio file into the WaveSurfer instance
-            wavesurfer.loadBlob(file);
-
-            // Once the audio is loaded, create a region for the selected track
-            wavesurfer.on('ready', function() {
-                const duration = wavesurfer.getDuration();
-                const region = wavesurfer.addRegion({
-                    start: 0,  // Start at the beginning
-                    end: duration,
-                    color: 'rgba(0, 0, 255, 0.1)',
-                    drag: false,
-                    resize: false,
-                    id: `region${trackIndex}`
-                });
-
-                regions.push({ id: trackIndex, region: region });
-
-                // Automatically play the loaded audio
-                wavesurfer.play();
-            });
-        });
-
-        function setVolume(trackId, volume) {
-            const region = regions.find(r => r.id === trackId);
-            if (region) {
-                wavesurfer.setVolume(volume);
-            }
-        }
-
-        function toggleMute(trackId) {
-            const region = regions.find(r => r.id === trackId);
-            if (region) {
-                wavesurfer.toggleMute();
-            }
-        }
-
-        function toggleSolo(trackId) {
-            const soloIndex = parseInt(trackId.replace('track', '')) - 1;
-            regions.forEach(({ id, region }) => {
-                if (id === soloIndex) {
-                    wavesurfer.setVolume(1);
-                } else {
-                    wavesurfer.setVolume(0);
-                }
-            });
-        }
-
-        function playAll() {
-            if (selectedTrackId) {
-                const region = regions.find(r => r.id === selectedTrackId);
-                if (region) {
-                    wavesurfer.play(region.start, region.end);
-                }
-            }
-        }
-
-        function stopAll() {
-            wavesurfer.stop();
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
