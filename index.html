@@ -15,6 +15,11 @@
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     color: #333; /* Ensure text is readable */
+    font-family: 'Lato';
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display';
   }
 
   @keyframes gradient {
@@ -55,59 +60,92 @@
   .project-info {
     flex: 1; /* Allows the project text to take up remaining space */
   }
+
+  .navbar {
+    background-color: transparent !important; /* Make the navbar background transparent */
+    box-shadow: none; /* Remove any shadow */
+    border: none; /* Remove any borders */
+  }
+
+  .navbar-nav .nav-link {
+    color: inherit; /* Set button text color for better visibility */
+    transition: color 0.3s; /* Smooth color transition on hover */
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #ff9a9e; /* Highlight buttons on hover */
+  }
+
+  /* MV button rotation and positioning */
+  .navbar-brand {
+    position: fixed; /* Keep it in the top-left corner */
+    top: 10px; /* Adjust distance from the top */
+    left: 10px; /* Adjust distance from the left */
+    z-index: 1000; /* Ensure it stays above other elements */
+    font-size: 1.5rem; /* Adjust font size as needed */
+    color: inherit; /* Ensure visibility */
+    text-decoration: none; /* Remove underline */
+    transform: rotate(0deg); /* Initial rotation state */
+    transition: transform 0.2s ease-out; /* Smooth rotation effect */
+  }
 </style>
 
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">Mariana Vasquez</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#projects">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#cv">CV</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#interests">Interests</a>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" id="mvButton">MV</a> <!-- Rotating button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cv">CV</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#interests">Interests</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+  
+
+  <script>
+    // JavaScript to rotate the MV button on scroll
+    let lastScrollPosition = 0; // Track the last scroll position
+    let currentRotation = 0; // Track the current rotation
+  
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const rotationAmount = (scrollTop - lastScrollPosition) * 2; // Adjust rotation sensitivity
+      currentRotation += rotationAmount;
+      document.getElementById('mvButton').style.transform = `rotate(${currentRotation}deg)`;
+      lastScrollPosition = scrollTop;
+    });
+  </script>
 
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md-3">
-      <div class="sidebar">
-        <img src="/images/square_pic.jpg" alt="Profile Picture" class="profile-pic">
-        <h4>Mariana Vasquez</h4>
-        <p>CS @ UC Berkeley </p>
-          <p><i class="fa fa-map-marker"></i> Berkeley, CA</p>
-        <a href="https://www.linkedin.com/in/mariana-vasquez-779469183/"><i class="fa fa-linkedin"></i> LinkedIn</a><br>
-        <a href="https://github.com/marivasq/"><i class="fa fa-github"></i> GitHub</a>
-      </div>
-    </div>
+    
     <div class="col-md-9">
       <!-- Main content goes here -->
-      <h2 id="about">hello, it's mariana.</h2>
-      <h2 id="about">i'm a developer.</h2>
+      <h2 id="about"><strong>hello, it's mariana.</strong></h2>
+      <h2 id="about"><strong>i'm a developer.</strong></h2>
       <p>I’m a recent graduate from the UC Berkeley with experience ranging from a university research setting to industry.
       </p>
       <p>
         My interests span topics such as <strong>computer vision</strong>, <strong>gen AI</strong>, and <strong>backend development</strong>.
       </p>
       
-      <h2 id="projects">Projects</h2>
-      <p></p>
+      <h2 id="projects"></h2>
 
-      <h4>Machine Learning</h4>
+      <h4>machine learning</h4>
 
       <div class="project">
         <img src="images/treble.png" alt="Text2Sound Preview" class="preview">
@@ -125,7 +163,7 @@
         </div>
       </div>
 
-      <h4>Front-end Development</h4>
+      <h4>front-end development</h4>
 
       <div class="project">
         <img src="images/paw_pic.jpg" alt="DogIt App Preview" class="preview">
@@ -143,7 +181,7 @@
         </div>
       </div>
 
-      <h4>Graphics</h4>
+      <h4>graphics</h4>
 
       <div class="project">
         <img src="images/water_sim_pic.png" alt="Water Simulation Preview" class="preview">
@@ -161,7 +199,7 @@
         </div>
       </div>
 
-      <h2 id="cv">Resume</h2>
+      <h2 id="cv">resume</h2>
       <h4>Work Experience</h4>
       <ul>
         <li>
