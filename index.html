@@ -15,7 +15,9 @@
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     color: #333; /* Ensure text is readable */
-    font-family: 'Lato';
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 7%; /* 5% of the viewport width */
+    margin-right: 7%; /* 5% of the viewport width */
   }
 
   h1, h2, h3 {
@@ -28,18 +30,13 @@
     100% { background-position: 0% 50%; }
   }
 
-  .profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 20px auto;
-    display: block;
-  }
-
-  .sidebar {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-    padding: 20px;
-    border-right: 1px solid #dee2e6;
+  .full-screen-section {
+  height: 100vh; /* Full viewport height */
+  display: flex; /* Use flexbox to center the content */
+  flex-direction: column; /* Stack the content vertically */
+  justify-content: center; /* Center the content vertically */
+  align-items: left; /* Center the content horizontally */
+  text-align: left; /* Center the text */
   }
 
   .project {
@@ -61,6 +58,10 @@
     flex: 1; /* Allows the project text to take up remaining space */
   }
 
+  .navbar .navbar-nav .nav-link {
+  color: black !important; /* Force the text color to be black */
+  }
+
   .navbar {
     background-color: transparent !important; /* Make the navbar background transparent */
     box-shadow: none; /* Remove any shadow */
@@ -68,7 +69,7 @@
   }
 
   .navbar-nav .nav-link {
-    color: inherit; /* Set button text color for better visibility */
+    color: black !important; /* Set the text color to black */
     transition: color 0.3s; /* Smooth color transition on hover */
   }
 
@@ -83,10 +84,10 @@
     left: 10px; /* Adjust distance from the left */
     z-index: 1000; /* Ensure it stays above other elements */
     font-size: 1.5rem; /* Adjust font size as needed */
-    color: inherit; /* Ensure visibility */
+
     text-decoration: none; /* Remove underline */
     transform: rotate(0deg); /* Initial rotation state */
-    transition: transform 0.2s ease-out; /* Smooth rotation effect */
+    transition: transform 0.002s ease-out; /* Smooth rotation effect */
   }
 </style>
 
@@ -123,7 +124,7 @@
   
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const rotationAmount = (scrollTop - lastScrollPosition) * 2; // Adjust rotation sensitivity
+      const rotationAmount = (scrollTop - lastScrollPosition) * 0.2; // Adjust rotation sensitivity
       currentRotation += rotationAmount;
       document.getElementById('mvButton').style.transform = `rotate(${currentRotation}deg)`;
       lastScrollPosition = scrollTop;
@@ -133,15 +134,18 @@
 <div class="container mt-5">
   <div class="row">
     
-    <div class="col-md-9">
+    <div class="col-md-9 full-screen-section">
       <!-- Main content goes here -->
-      <h2 id="about"><strong>hello, it's mariana.</strong></h2>
-      <h2 id="about"><strong>i'm a developer.</strong></h2>
+      <h1 id="about" style="font-size:46px;"><strong>hello, it's mariana.</strong></h1>
+      <h1 style="font-size:46px;"><strong>i'm a developer.</strong></h1>
       <p>I’m a recent graduate from the UC Berkeley with experience ranging from a university research setting to industry.
       </p>
       <p>
         My interests span topics such as <strong>computer vision</strong>, <strong>gen AI</strong>, and <strong>backend development</strong>.
       </p>
+    </div>
+
+    <div class="col-md-9">
       
       <h2 id="projects"></h2>
 
