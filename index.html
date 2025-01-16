@@ -5,43 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mariana Vasquez</title>
   <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-xxxxx" crossorigin="anonymous">
-  <style>
-    /* Custom styles */
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin: 20px auto;
-      display: block;
-    }
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-xxxxx" crossorigin="anonymous">
 
-    .sidebar {
-      background-color: #f8f9fa;
-      padding: 20px;
-      border-right: 1px solid #dee2e6;
-    }
+<style>
+  /* Custom styles */
+  body {
+    background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: #333; /* Ensure text is readable */
+  }
 
-    .project {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 
-    .preview {
-      width: 100px; /* Set width of the preview image */
-      height: 100px; /* Set height of the preview image */
-      object-fit: cover; /* Ensures image fits nicely */
-      margin-right: 15px; /* Spacing between image and text */
-      border-radius: 5px; /* Optional: rounded corners */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
-    }
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+  }
 
-    .project-info {
-      flex: 1; /* Allows the project text to take up remaining space */
-    }
-  </style>
+  .sidebar {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    padding: 20px;
+    border-right: 1px solid #dee2e6;
+  }
+
+  .project {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .preview {
+    width: 100px; /* Set width of the preview image */
+    height: 100px; /* Set height of the preview image */
+    object-fit: cover; /* Ensures image fits nicely */
+    margin-right: 15px; /* Spacing between image and text */
+    border-radius: 5px; /* Optional: rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+  }
+
+  .project-info {
+    flex: 1; /* Allows the project text to take up remaining space */
+  }
+</style>
+
 </head>
 <body>
 
@@ -81,21 +96,23 @@
     </div>
     <div class="col-md-9">
       <!-- Main content goes here -->
-      <h2 id="about">About</h2>
-      <p>Hi! I’m Mariana, a computer scientist, AI enthusiast, and recent graduate with a Bachelors in Computer Science from the University of California, Berkeley. My research interests span topics such as computer vision, generative AI, and machine learning in general. Beyond those topics, I am also trying to build upon my skills in full stack development. I have worked on various projects ranging from a university research setting to industry.
+      <h2 id="about">hello, it's mariana.</h2>
+      <h2 id="about">i'm a developer.</h2>
+      <p>I’m a recent graduate from the UC Berkeley with experience ranging from a university research setting to industry.
       </p>
-      <p>I am currently seeking a full-time junior role. My most recent projects and skills are linked and summarized throughout the site.
+      <p>
+        My interests span topics such as <strong>computer vision</strong>, <strong>gen AI</strong>, and <strong>backend development</strong>.
       </p>
       
       <h2 id="projects">Projects</h2>
-      <p>Check out some of my recent projects!</p>
+      <p></p>
 
       <h4>Machine Learning</h4>
 
       <div class="project">
-        <img src="images/" alt="Text2Sound Preview" class="preview">
+        <img src="images/treble.png" alt="Text2Sound Preview" class="preview">
         <div class="project-info">
-          <h6><a href="pages/daw.html">Text2Sound Plugin</a></h6>
+          <h6><a href="pages/text2sound.html">Text2Sound Plugin</a></h6>
           <p>A DAW plugin that generates sound effects from textual descriptions using AI.</p>
         </div>
       </div>
@@ -105,14 +122,6 @@
         <div class="project-info">
           <h6><a href="https://github.com/amritamo/fashion_stable_diffusion_finetuned">Fashion Stable Diffusion Fine-tuned</a></h6>
           <p>Fashion synthesis assistant tool generates fashion images via a text prompt.</p>
-        </div>
-      </div>
-
-      <div class="project">
-        <img src="images/emir_output.jpg" alt="Colorizer Preview" class="preview">
-        <div class="project-info">
-          <h6><a href="pages/colorizer.html">Colorizer</a></h6>
-          <p>Colorizing the Prokudin-Gorskii photo collection.</p>
         </div>
       </div>
 
@@ -127,7 +136,7 @@
       </div>
 
       <div class="project">
-        <img src="images/leetcode_logo.png" alt="DAW With Text-To-Audio Preview" class="preview">
+        <img src="images/leetcode_logo.png" alt="Leetcode Stuff" class="preview">
         <div class="project-info">
           <h6><a href="pages/leetcode.html">Leetcode & Interview Prep</a></h6>
           <p>Guide to interview preparation including data structures and algorithms.</p>

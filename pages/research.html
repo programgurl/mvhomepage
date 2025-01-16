@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-Sound-Effect Plugin Design Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-xxxxx" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/index.html">Mariana Vasquez</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#cv">CV</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#interests">Interests</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container mt-4">
+        <header class="text-center mb-4">
+            <h2 class="display-4"><i class="fas fa-music"></i>Research and Planning</h2>
+            <p class="lead"><strong>Objective:</strong> Develop a DAW plugin that generates sound effects from textual descriptions using AI.</p>
+        </header>
+
+        <section class="mb-4">
+            <h2><i class="fas fa-lightbulb"></i> 1. Comparable Tools</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Output Quality</th>
+                        <th>Controllability</th>
+                        <th>Model Architecture</th>
+                        <th>Key Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AudioLDM</td>
+                        <td>High-quality audio, diverse styles</td>
+                        <td>Zero-shot style transfer, long-form audio</td>
+                        <td>Diffusion model</td>
+                        <td>Versatile audio generation, including speech, music, and sound effects</td>
+                    </tr>
+                    <tr>
+                        <td>AudioBox</td>
+                        <td>High-quality audio, natural speech</td>
+                        <td>Fine-grained control over speech and sound effects</td>
+                        <td>Diffusion model</td>
+                        <td>Controllable speech and sound effect generation, diverse audio styles</td>
+                    </tr>
+                    <tr>
+                        <td>MusicGen</td>
+                        <td>High-quality music, various genres</td>
+                        <td>Control over musical parameters</td>
+                        <td>Diffusion model</td>
+                        <td>Music generation with specific genres, instruments, and emotions</td>
+                    </tr>
+                    <tr>
+                        <td>Make-An-Audio</td>
+                        <td>High-quality audio, diverse types</td>
+                        <td>Prompt-based control</td>
+                        <td>Diffusion model</td>
+                        <td>Versatile audio generation from text descriptions, supports various audio modalities</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
