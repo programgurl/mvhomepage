@@ -1,0 +1,272 @@
+/* Title Page Section */
+.title-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #fef7f3 55%, #f7c1a1 55%); /* Create gradient */
+    height: 100vh;
+    text-align: center;
+    padding: 0px;
+  }
+
+  /* Navigation Bar Styles */
+.navbar {
+    position: absolute; /* Fixed to the top of the page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent; /* Transparent background */
+    padding: 10px 20px;
+    z-index: 1000;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center;
+    margin: 2.5% 5%;
+    padding: 0;
+  }
+  
+  .navbar li {
+    margin: 0 20px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #333; /* Text color */
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    color: #dfa07b; /* Hover color */
+  }
+  
+  .header-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .container {
+    position: relative;
+    width: 200px; /* Width of the entire container */
+    height: 200px; /* Height of the entire container */
+    background-color: rgba(0, 0, 0, 0); /* Plain black square background */
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+
+  .container :hover {
+    animation: wiggle 0.5s ease-in-out; /* Apply the wiggle animation */
+  }
+
+  /* Define the wiggle keyframes */
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(4deg); }
+    50% { transform: rotate(-4deg); }
+    75% { transform: rotate(4deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  .image-frame {
+    position: absolute;
+    top: -5%; /* Offset the frame towards the top-right */
+    left: 10%; /* Offset the frame towards the top-right */
+    width: 200px; /* Width of the frame */
+    height: 200px; /* Height of the frame */
+    border-radius: 20px; /* Rounded corners for the frame */
+    overflow: hidden; /* Ensure the image stays within the frame */
+  }
+
+  .image-frame img {
+    width: 100%; /* Make the image cover the entire frame */
+    height: 100%; /* Make the image cover the entire frame */
+    object-fit: cover; /* Ensure the image covers the frame without stretching */
+  }
+
+  .plain-black-square {
+    position: absolute;
+    bottom: -10%; /* Offset the black square towards the bottom-left */
+    right: 10%; /* Offset the black square towards the bottom-left */
+    width: 200px; /* Width of the plain black square */
+    height: 200px; /* Height of the plain black square */
+    border-radius: 20px; /* Rounded corners for the frame */
+    background-color: black; /* Black background */
+  }
+
+  body {
+    font-family: 'Metrophobic';font-size: 22px;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Poppins';font-size: 22px;
+  }
+  
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .contact-info p {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .custom-icon {
+    width: 30px; /* Change the width */
+    height: 30px; /* Change the height */
+    fill: black; /* Set a custom fill color (pastel orange) */
+    stroke-width: 1; /* Set the stroke width */
+    transition: all 0.3s ease; /* Optional: Add transition for smooth effects */
+  }
+  
+  .custom-icon:hover {
+    transform: scale(1.1); /* Optional: Add a hover effect to make it larger */
+    fill: #fef7f3; /* Change color on hover */
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 24px;
+    }
+  
+    .photo-frame {
+      width: 150px;
+      height: 150px;
+    }
+  
+    .icons a img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+
+    /* Project Section */
+    .project-section {
+    background-color: #fef7f3;
+    padding: 60px 20px;
+    }
+
+    .project {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+    }
+
+    .project-image {
+    flex: 1;
+    }
+
+    .project-image img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    }
+
+    .project-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    }
+
+    .project-details h2 {
+        font-size: 28px;
+        font-weight: 600;
+        color: #333;
+        position: relative; /* Needed for positioning the underline */
+    }
+
+    /* Style for the link inside h2 */
+    .project-details a {
+        text-decoration: none; /* Remove default underline */
+        color: #333; /* Set the color of the link to black */
+        display: inline-block; /* Make the link an inline-block so that it takes the width of the text */
+    }
+
+    /* Thin underline */
+    .project-details a::after {
+        content: ''; /* No text, just the line */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px; /* Set the thickness of the underline */
+        background-color: #000000; /* Color of the underline */
+        transform: scaleX(0); /* Initially, the underline is hidden */
+        transform-origin: bottom right; /* Start the underline from right to left */
+        transition: transform 0.3s ease; /* Smooth transition */
+    }
+
+    /* Show the underline on hover */
+    .project-details a:hover::after {
+        transform: scaleX(1); /* Uncover the underline */
+        transform-origin: bottom left; /* End the underline from left to right */
+    }
+
+    .project-details p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    }
+
+    video {
+        width: 100%; /* Make the video responsive */
+        max-width: 600px;
+        height: auto;
+        border-radius: 12px; /* Optional rounded corners */
+    }
+
+    @media (max-width: 768px) {
+        .project {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .project-image,
+        .project-details {
+            width: 100%;
+        }
+    }
+    
+
+    @media (max-width: 768px) {
+        .hero-content {
+        flex-direction: column;
+        text-align: center;
+        }
+
+        .info {
+        align-items: center;
+        }
+
+        .photo {
+        margin-top: 20px;
+        }
+    }
+    

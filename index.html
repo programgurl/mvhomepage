@@ -4,294 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mariana Vasquez</title>
-  <!-- Bootstrap CSS -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-xxxxx" crossorigin="anonymous">
-
-<style>
-  /* Custom styles */
-  body {
-    background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    color: #333; /* Ensure text is readable */
-    font-family: 'Montserrat', sans-serif;
-    margin-left: 7%; /* 5% of the viewport width */
-    margin-right: 7%; /* 5% of the viewport width */
-  }
-
-  h1, h2, h3 {
-    font-family: 'Playfair Display';
-  }
-
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .full-screen-section {
-  height: 100vh; /* Full viewport height */
-  display: flex; /* Use flexbox to center the content */
-  flex-direction: column; /* Stack the content vertically */
-  justify-content: center; /* Center the content vertically */
-  align-items: left; /* Center the content horizontally */
-  text-align: left; /* Center the text */
-  }
-
-  .project {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .preview {
-    width: 100px; /* Set width of the preview image */
-    height: 100px; /* Set height of the preview image */
-    object-fit: cover; /* Ensures image fits nicely */
-    margin-right: 15px; /* Spacing between image and text */
-    border-radius: 5px; /* Optional: rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
-  }
-
-  .project-info {
-    flex: 1; /* Allows the project text to take up remaining space */
-  }
-
-  .navbar .navbar-nav .nav-link {
-  color: black !important; /* Force the text color to be black */
-  }
-
-  .navbar {
-    background-color: transparent !important; /* Make the navbar background transparent */
-    box-shadow: none; /* Remove any shadow */
-    border: none; /* Remove any borders */
-  }
-
-  .navbar-nav .nav-link {
-    color: black !important; /* Set the text color to black */
-    transition: color 0.3s; /* Smooth color transition on hover */
-  }
-
-  .navbar-nav .nav-link:hover {
-    color: #ff9a9e; /* Highlight buttons on hover */
-  }
-
-  /* MV button rotation and positioning */
-  .navbar-brand {
-    position: fixed; /* Keep it in the top-left corner */
-    top: 10px; /* Adjust distance from the top */
-    left: 10px; /* Adjust distance from the left */
-    z-index: 1000; /* Ensure it stays above other elements */
-    font-size: 1.5rem; /* Adjust font size as needed */
-
-    text-decoration: none; /* Remove underline */
-    transform: rotate(0deg); /* Initial rotation state */
-    transition: transform 0.002s ease-out; /* Smooth rotation effect */
-  }
-</style>
-
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Metrophobic' rel='stylesheet'>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Title Section -->
+  <section class="title-page">
 
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#" id="mvButton">MV</a> <!-- Rotating button -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#projects">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#cv">CV</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#interests">Interests</a>
-          </li>
-        </ul>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-container">
+      
+      <h1 style="font-size: 32px; ">hi, i'm mariana. i'm a developer.</h1>
+      
+      <div class="container">
+        <div class="plain-black-square"></div>
+        <div class="image-frame">
+          <img src="images/square_pic.jpg" alt="Framed Image">
+        </div>
       </div>
+
+      <div class="contact-info">
+        <p>Contact me:</p>
+        <div class="icons">
+          <a href="mailto:example@example.com" title="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" class="custom-icon" viewBox="0 0 16 16">
+              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+            </svg>
+          </a>
+          <a href="https://linkedin.com" title="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="custom-icon" viewBox="0 0 16 16">
+              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+            </svg>
+          </a>
+          <a href="https://github.com" title="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" class="custom-icon" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
     </div>
-  </nav>
+  </section>
   
 
-  <script>
-    // JavaScript to rotate the MV button on scroll
-    let lastScrollPosition = 0; // Track the last scroll position
-    let currentRotation = 0; // Track the current rotation
-  
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const rotationAmount = (scrollTop - lastScrollPosition) * 0.2; // Adjust rotation sensitivity
-      currentRotation += rotationAmount;
-      document.getElementById('mvButton').style.transform = `rotate(${currentRotation}deg)`;
-      lastScrollPosition = scrollTop;
-    });
-  </script>
+  <!-- Project Sections -->
+  <main>
 
-<div class="container mt-5">
-  <div class="row">
+    <section class="project-section">
+      <div class="project">
+        <div class="project-image">
+          <video width="640" height="360" controls>
+            <source src="images/gravidy_logo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="project-details">
+          <h2>
+            <a href="project-page.html">Gravidy Comments Section →</a>
+          </h2>
+          <p>
+            Inflow is an app that helps people with Attention Deficit Hyperactivity Disorder (ADHD). 
+            I designed their visual identity and new site with a focus on neuroinclusive design.
+          </p>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-image">
+          <img src="images/treble.png" alt="Project Preview">
+        </div>
+        <div class="project-details">
+          <h2>
+            <a href="project-page.html">Text2Sound Plugin Tool →</a>
+          </h2>
+          <p>
+            A DAW plugin that generates editable sound effects from textual descriptions using AI.
+          </p>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-image">
+          <img src="images/playstation logo.webp" alt="Project Preview">
+        </div>
+        <div class="project-details">
+          <h2>
+            <a href="project-page.html">PlayStation Facial Texture Generator →</a>
+          </h2>
+          <p>
+            Inflow is an app that helps people with Attention Deficit Hyperactivity Disorder (ADHD). 
+            I designed their visual identity and new site with a focus on neuroinclusive design.
+          </p>
+        </div>
+      </div>
+
+    </section>
     
-    <div class="col-md-9 full-screen-section">
-      <!-- Main content goes here -->
-      <h1 id="about" style="font-size:46px;"><strong>hello, it's mariana.</strong></h1>
-      <h1 style="font-size:46px;"><strong>i'm a developer.</strong></h1>
-      <p>I’m a recent graduate from the UC Berkeley with experience ranging from a university research setting to industry.
-      </p>
-      <p>
-        My interests span topics such as <strong>computer vision</strong>, <strong>gen AI</strong>, and <strong>backend development</strong>.
-      </p>
-    </div>
+    
+    
 
-    <div class="col-md-9">
-      
-      <h2 id="projects"></h2>
-
-      <h4>machine learning</h4>
-
-      <div class="project">
-        <img src="images/treble.png" alt="Text2Sound Preview" class="preview">
-        <div class="project-info">
-          <h6><a href="pages/text2sound.html">Text2Sound Plugin</a></h6>
-          <p>A DAW plugin that generates sound effects from textual descriptions using AI.</p>
-        </div>
-      </div>
-
-      <div class="project">
-        <img src="images/fashion_pic.png" alt="Fashion Stable Diffusion Preview" class="preview">
-        <div class="project-info">
-          <h6><a href="https://github.com/amritamo/fashion_stable_diffusion_finetuned">Fashion Stable Diffusion Fine-tuned</a></h6>
-          <p>Fashion synthesis assistant tool generates fashion images via a text prompt.</p>
-        </div>
-      </div>
-
-      <h4>front-end development</h4>
-
-      <div class="project">
-        <img src="images/paw_pic.jpg" alt="DogIt App Preview" class="preview">
-        <div class="project-info">
-          <h6><a href="https://github.com/Aryiadm/DogItApp">DogIt App</a></h6>
-          <p>Contributed to a dog healthcare app. Demonstrated skills include React and Web development.</p>
-        </div>
-      </div>
-
-      <div class="project">
-        <img src="images/leetcode_logo.png" alt="Leetcode Stuff" class="preview">
-        <div class="project-info">
-          <h6><a href="pages/leetcode.html">Leetcode & Interview Prep</a></h6>
-          <p>Guide to interview preparation including data structures and algorithms.</p>
-        </div>
-      </div>
-
-      <h4>graphics</h4>
-
-      <div class="project">
-        <img src="images/water_sim_pic.png" alt="Water Simulation Preview" class="preview">
-        <div class="project-info">
-          <h6><a href="https://github.com/snviray/184-final-project-group-70">Water Simulation</a></h6>
-          <p>Implement underlying physics governing fluid dynamics simulations with water.</p>
-        </div>
-      </div>
-      
-      <div class="project">
-        <img src="images/nearest_nearest.png" alt="Rasterizer Preview" class="preview">
-        <div class="project-info">
-          <h6><a href="pages/rasterizer.html">Rasterizer</a></h6>
-          <p>Rasterization in graphics.</p>
-        </div>
-      </div>
-
-      <h2 id="cv">resume</h2>
-      <h4>Work Experience</h4>
-      <ul>
-        <li>
-          <strong>PlayStation</strong>, Machine Learning Engineer Intern<br>
-          May 2023 - August 2023<br>
-          <ul>
-            <li>Trained a generative model on a large-scale facial UV-texture dataset with the aim of generating brand new face textures as a tool for animators to use</li>
-            <li>Used PyQT to design part of the user interface in python</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Vyrill</strong>, Contract MLE Project Member<br>
-          August 2022 - December 2022<br>
-          <ul>
-            <li>Worked on extracting demographic data using CNN-based architectures on video, and NLP on transcription and audio with AWS platform (<a href="https://github.com/pihart/vyrill">GitHub</a>)</li>
-          </ul>
-        </li>
-        <li>
-          <strong> Auburn University </strong>, Research Intern <br>
-          May 2022 - July 2022 <br>
-          <ul>
-            <li> Developed novel path planning algorithm using Deep Q-Learning model for UAV search and rescue applications ( NSF REU on Smart UAV Program) (<a href="https://docs.google.com/presentation/d/1jxetGnd-O9uRav0n_caNE3lu9m2IatDit7UmUB2zXGs/edit?usp=sharing">Slides</a>)</li>
-            <li> Implemented search algorithm on drone simulation software including Microsoft’s Airsim on Unreal Engine and Ardupilot Software In The Loop (SITL) Simulator </li>
-            <li> Trained object detection model on thermal data to recognize a person, over 95% accuracy </li> 
-          </ul>
-        </li>
-        <li>
-          <strong> DePaul University </strong>, Research Intern <br>
-          June 2021 - August 2021 <br>
-          <ul>
-            <li> Used Tensorflow to build a convolutional neural network for classification of age-related macular degeneration using (800+) OCT retinal scans with more than 95% accuracy </li>
-            <li> Studied deep learning concepts (activation functions, loss functions, normalization, etc.) </li>
-            <li> Published <a href="http://dx.doi.org/10.1117/12.2611173">paper</a> at SPIE Digital Library (MedIX REU Program) </li>
-          </ul>
-        </li>
-        <!-- Add more work experience as needed -->
-      </ul>
-      
-      <h4>Research Papers</h4>
-      <ul>
-        <li><a href="/Auburn_Final_Paper.pdf">Object Searching, Acquisition, and Classification Using Stabilized Thermal Imaging on Smart UAVs for Use in Low-Cost SAR Applications</a></li>
-        <li><a href="http://dx.doi.org/10.1117/12.2611173">Human-in-the-loop deep learning retinal image classification with customized loss function</a></li>
-      </ul>
-
-      <h4>Awards and Scholarships</h4>
-      <ul>
-        <li>SEED Scholars Honors Program</li>
-        <li>Regents and Chancellor's Scholarship Program</li>
-        <li>UCSD Covid-19 Data Challenge Honorary Mention</li>
-      </ul>
-
-      <h4>Skills</h4>
-      <ul>
-        <li>Experience with Python (Numpy, Matplotlib, Pandas, OpenCV, Sklearn), Java, C, C++, OpenGL, HTML, CSS, Javascript, React, SQL, CMake, Git, PostgreSQL, Go, Golang</li>
-        <li>Skills in Scheme, Front End, Backend Development, Data Analysis, OO programming, End-to-end project development, Full Stack</li>
-        <li>Well-versed in Deep Learning (Tensorflow, Keras, Pytorch), Data Visualization tools</li>
-      </ul>
-
-      <h2 id="interests">Interests</h2>
-      <p>Self-teaching music production, cooking, writing, [...more interests here].</p>
-    </div>
-  </div>
-</div>
-
-<footer class="bg-dark text-light py-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h5>Contact Information</h5>
-        <p>Email: marianavasquez@berkeley.edu</p>
-      </div>
-      <div class="col-md-6">
-        <h5>Follow Me</h5>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="https://www.linkedin.com/in/mariana-vasquez-779469183/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-          <li class="list-inline-item"><a href="https://github.com/marivasq/"><i class="fab fa-github"></i> GitHub</a></li>
-          <!-- Add more social media icons and links as needed -->
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
+  </main>
 </body>
 </html>
