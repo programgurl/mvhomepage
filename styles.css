@@ -1,4 +1,10 @@
 /* Title Page Section */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .title-page {
     display: flex;
     flex-direction: column;
@@ -164,35 +170,62 @@
 
     /* Project Section */
     .project-section {
-    background-color: #fef7f3;
-    padding: 60px 20px;
+        background-color: #fef7f3;
+        padding: 60px 20px;
     }
 
     .project {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 40px;
     }
 
     .project-image {
-    flex: 1;
+        padding: 20px; /* Add space around the video */
+        border-radius: 10px; /* Optional: Rounded corners */
+        display: flex;
+        justify-content: center; /* Center the video horizontally */
+        align-items: center; /* Center the video vertically */
+        width: 300px; /* Adjust the box width */
+        height: 300px; /* Adjust the box height */
+        
+        margin: auto; /* Center the container in its parent */
     }
 
     .project-image img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: 12px;
-    object-fit: cover;
+        width: 80%; /* Make the video smaller inside the box */
+        height: 80%; /* Maintain aspect ratio */
+        border-radius: 10px; /* Optional: Rounded corners */
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.8); /* Optional: Add a subtle shadow */
+        z-index: 10; /* Ensure the video is brought to the front */
+      }
+
+    .project-image video {
+        width: 80%; /* Make the video smaller inside the box */
+        height: 80%; /* Maintain aspect ratio */
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.8); /* Strong shadow */
+        z-index: 10; /* Ensure the video is brought to the front */
+      }
+
+    .project-image-1 {
+        background-color: rgb(212, 198, 236);
+    }
+
+    .project-image-2 {
+        background-color: grey;
+    }
+
+    .project-image-3 {
+        background-color: whitesmoke;
     }
 
     .project-details {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .project-details h2 {
@@ -230,9 +263,9 @@
     }
 
     .project-details p {
-    font-size: 18px;
-    color: #555;
-    line-height: 1.6;
+        font-size: 18px;
+        color: #555;
+        line-height: 1.6;
     }
 
     video {
@@ -268,5 +301,17 @@
         .photo {
         margin-top: 20px;
         }
+    }
+    
+    .footer {
+        background-color: #fef7f3;
+        text-align: center; /* Center the text */
+        padding: 20px 10px; /* Add some spacing */
+        color: #000; /* Black text */
+        font-size: 16px; /* Adjust text size */
+        font-weight: 500; /* Optional: Slightly bolder text */
+        position: relative; /* Default positioning */
+        bottom: 0;
+        width: 100%; /* Span the full width of the screen */
     }
     
