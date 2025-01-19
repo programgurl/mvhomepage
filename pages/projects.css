@@ -108,6 +108,66 @@ color: #b6e8ca; /* Hover color */
     word-wrap: break-word;
   }
 
+  .gallery-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    overflow: hidden;
+}
+
+.nav-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.gallery {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.gallery-item {
+    flex: 0 0 50%;
+    max-width: 40%;
+    opacity: 0.5;
+    transform: scale(0.8);
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.gallery-item.center {
+    flex: 0 0 100%;
+    max-width: 60%;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.gallery-item:not(.center) {
+    filter: brightness(0.7);
+}
+
+.nav-btn#prevBtn {
+    position: absolute;
+    left: 10px;
+}
+
+.nav-btn#nextBtn {
+    position: absolute;
+    right: 10px;
+}
+
 .project-details {
     background-color: #fef7f3;
     margin: 0 auto;

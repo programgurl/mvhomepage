@@ -206,7 +206,6 @@
     .project-image video {
         width: 80%; /* Make the video smaller inside the box */
         height: 80%; /* Maintain aspect ratio */
-        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.8); /* Strong shadow */
         z-index: 10; /* Ensure the video is brought to the front */
       }
 
