@@ -1,10 +1,12 @@
-/* Title Page Section */
+/* Home Page Style Sheet*/
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Title Page Section */
 .title-page {
     display: flex;
     flex-direction: column;
@@ -16,7 +18,7 @@
     padding: 0px;
   }
 
-  /* Navigation Bar Styles */
+/* Navigation Bar Styles */
 .navbar {
     position: absolute; /* Fixed to the top of the page */
     top: 0;
