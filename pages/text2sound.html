@@ -1,145 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text-to-Sound-Effect Plugin Design Document</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-xxxxx" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariana Vasquez</title>
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Metrophobic' rel='stylesheet'>
+  <link rel="stylesheet" href="projects.css">
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand" href="/index.html">Mariana Vasquez</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#projects">Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#cv">CV</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#interests">Interests</a>
-              </li>
+    <section class="overview-page">
+        <nav class="navbar">
+            <ul>
+              <li><a href="../index.html">Projects</a></li>
+              <li><a href="about.html">About</a></li>
             </ul>
-          </div>
+        </nav>
+
+        <div class="header-container">
+            <h1>Text2sound Plugin Tool</h1>
+
+            <p>
+                Develop a DAW plugin that generates sound effects from textual descriptions using AI.
+            </p>
+
         </div>
-      </nav>
+    </section>
 
-    <div class="container mt-4">
-        <header class="text-center mb-4">
-            <h1 class="display-4"><i class="fas fa-music"></i> Text-to-Sound-Effect Plugin Tool</h1>
-            <p class="lead"><strong>Objective:</strong> Develop a DAW plugin that generates sound effects from textual descriptions using AI.</p>
-        </header>
+    <section class="chart">
 
-        <section class="mb-4">
-            <h2><i class="fas fa-lightbulb"></i> 1. Project Overview</h2>
-            <ul class="list-group">
-                <li class="list-group-item"><strong>Primary Goal:</strong> Enable users to input descriptive text and receive a sound effect that matches the description.</li>
-                <li class="list-group-item"><strong>Scope:</strong>
-                    <ul>
-                        <li>NLP-based text processing for understanding user input.</li>
-                        <li>AI-powered sound synthesis or retrieval.</li>
-                        <li>Integration with DAWs (Ableton, Reaper) as a plugin (VST/AU).</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
+        <table class="project-table">
+            <tr>
+              <th>Challenge</th>
+              <td>How do I design a text-to-sound tool that maximizes useful output while maintaining a lightweight structure?</td>
+            </tr>
+            <tr>
+              <th>My Role</th>
+              <td>Data Collection, Preprocessing, Model Selection, Plugin Development</td>
+            </tr>
+            <tr>
+              <th>Year</th>
+              <td>2024 to Present</td>
+            </tr>
+            <tr>
+              <th>Timeline</th>
+              <td>3 months</td>
+            </tr>
+            <tr>
+              <th>Tools</th>
+              <td>Python, Freesound API, Audio Libraries</td>
+            </tr>
+          </table>
+    </section>
 
-        <section class="mb-4">
-            <h2><i class="fas fa-tasks"></i> 2. Functional Requirements</h2>
-            <ul class="list-group">
-                <li class="list-group-item"><strong>Input:</strong>
-                    <ul>
-                        <li>A text box for user input.</li>
-                        <li>Preset text prompts for quick testing.</li>
-                    </ul>
-                </li>
-                <li class="list-group-item"><strong>Output:</strong>
-                    <ul>
-                        <li>Audio playback of the generated sound effect.</li>
-                        <li>Downloadable audio files in WAV/MP3 format.</li>
-                    </ul>
-                </li>
-                <li class="list-group-item"><strong>Plugin Features:</strong>
-                    <ul>
-                        <li>Real-time parameter adjustments (e.g., pitch, reverb, volume).</li>
-                        <li>Option to save presets for frequently used text inputs.</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
+    <section class="project-details">
+        <div class="visuals">
+            [visuals]
+        </div>
+        <div class="description">
+            <h2>Project Details</h2>
+            <h4>Objective:</h4>
+                
+            <p>[here]</p>
+            <h4>Frontend:</h4>
+                
+            <p>
+                User interface for DAW plugin (e.g., JUCE framework).
+                Controls for text input, parameter adjustment, and playback.
+            </p>
+            <h4>Backend:</h4>
+                
+            <p>
+                GAN model on spectograms.
+            </p>
+            <h4>Storage:</h4>
+                
+            <p>
+                Local storage for user presets and recent sound generations.
+            </p>
 
-        <section class="mb-4">
-            <h2><i class="fas fa-cogs"></i> 3. System Architecture</h2>
-            <ul class="list-group">
-                <li class="list-group-item"><strong>Frontend:</strong>
-                    <ul>
-                        <li>User interface for DAW plugin (e.g., JUCE framework).</li>
-                        <li>Controls for text input, parameter adjustment, and playback.</li>
-                    </ul>
-                </li>
-                <li class="list-group-item"><strong>Backend:</strong>
-                    <ul>
-                        <li>Text Processing: NLP model (e.g., GPT, BERT) to interpret user input.</li>
-                        <li>Sound Processing:
-                            <ul>
-                                <li>Option 1: Pre-trained sound generation model (e.g., Diffusion, GAN).</li>
-                                <li>Option 2: Database of tagged sound effects for retrieval.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="list-group-item"><strong>Storage:</strong>
-                    <ul>
-                        <li>Local storage for user presets and recent sound generations.</li>
-                        <li>Cloud storage for extensible sound databases (optional).</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
+        </div>
+        
+    </section>
 
-        <section class="mb-4">
-            <h2><i class="fas fa-laptop-code"></i> 4. Technology Stack</h2>
-            <ul class="list-group">
-                <li class="list-group-item">Programming Languages: C++ (for plugin development with JUCE), Python (for AI components).</li>
-                <li class="list-group-item">Frameworks: JUCE for VST/AU development, PyTorch/TensorFlow for AI components.</li>
-                <li class="list-group-item">Libraries: librosa for audio analysis, Hugging Face Transformers for text processing, Soundfile for audio file handling.</li>
-            </ul>
-        </section>
-
-        <section class="mb-4">
-            <h2><i class="fas fa-calendar-alt"></i> 5. Development Plan</h2>
-            <ul class="list-group">
-                <li class="list-group-item"><strong>Phase 1:</strong> Research and Planning</li>
-                <li class="list-group-item"><strong>Phase 2:</strong> Prototype Development</li>
-                <li class="list-group-item"><strong>Phase 3:</strong> AI Integration</li>
-                <li class="list-group-item"><strong>Phase 4:</strong> Testing and Refinement</li>
-                <li class="list-group-item"><strong>Phase 5:</strong> Deployment</li>
-            </ul>
-        </section>
-
-        <section class="mb-4">
-            <h2><i class="fas fa-exclamation-circle"></i> 6. Challenges and Risks</h2>
-            <ul class="list-group">
-                <li class="list-group-item">Performance Issues: Ensuring low latency for real-time use.</li>
-                <li class="list-group-item">Model Accuracy: Achieving precise alignment between text input and sound output.</li>
-                <li class="list-group-item">Compatibility: Handling the quirks of different DAWs and operating systems.</li>
-                <li class="list-group-item">User Adoption: Designing an interface that appeals to a wide range of users.</li>
-            </ul>
-        </section>
-
-        <footer class="text-center mt-4">
-            <p>Created by Mariana | <i class="fas fa-code"></i> Powered by AI</p>
-        </footer>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <section class="footer">
+        <p> Mariana Vasquez - Developer </p>
+      <p> Contact - marianagvasquez@gmail.com </p>
+    </section>
 </body>
 </html>
