@@ -1,29 +1,40 @@
 const gallery = document.querySelector('.gallery');
-const images = document.querySelectorAll('.gallery-item');
+const items = document.querySelectorAll('.gallery-item');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
 let currentIndex = 0;
 
 function updateGallery() {
-    images.forEach((image, index) => {
-        image.classList.remove('center');
+    items.forEach((item, index) => {
+        item.classList.remove('center');
+
         if (index === currentIndex) {
-            image.classList.add('center');
+            // Center image
+            item.classList.add('center');
+        } else if (index === (currentIndex + 1) % items.length) {
+            // Right image
+            item.style.transform = 'translateX(100%) scale(0.8)';
+            item.style.opacity = '0.5';
+        } else if (index === (currentIndex - 1 + items.length) % items.length) {
+            // Left image
+            item.style.transform = 'translateX(-100%) scale(0.8)';
+            item.style.opacity = '0.5';
+        } else {
+            // Hidden images
+            item.style.transform = 'translateX(200%) scale(0.5)';
+            item.style.opacity = '0';
         }
     });
-
-    const offset = currentIndex * -100; // Move gallery by the width of one image
-    gallery.style.transform = `translateX(${offset}%)`;
 }
 
 prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
     updateGallery();
 });
 
 nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % images.length;
+    currentIndex = (currentIndex + 1) % items.length;
     updateGallery();
 });
 

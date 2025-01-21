@@ -113,21 +113,17 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     position: relative;
-    width: 80%;
-    max-width: 1000px;
-    overflow: hidden;
+    width: 100%;
+    width: 600px;
+    margin: auto;
 }
 
 .nav-btn {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: transparent;
     border: none;
-    padding: 10px 20px;
+    font-size: 2rem;
     cursor: pointer;
-    font-size: 20px;
-    border-radius: 5px;
-    z-index: 10;
-    transition: background-color 0.3s;
+    z-index: 2;
 }
 
 .nav-btn:hover {
@@ -136,23 +132,26 @@ h1, h2, h3 {
 
 .gallery {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     transition: transform 0.5s ease-in-out;
     width: 100%;
 }
 
 .gallery-item {
-    flex: 0 0 50%;
-    max-width: 40%;
+    flex: 0 0 auto;
+    max-width: 200px;
+    height: auto;
     opacity: 0.5;
     transform: scale(0.8);
     transition: transform 0.5s, opacity 0.5s;
 }
 
 .gallery-item.center {
-    flex: 0 0 100%;
-    max-width: 60%;
-    opacity: 1;
     transform: scale(1);
+    opacity: 1;
+    max-width: 300px; /* Larger size for the center image */
 }
 
 .gallery-item:not(.center) {
