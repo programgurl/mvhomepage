@@ -35,6 +35,7 @@ h1, h2, h3 {
     font-size: 32px;
     margin-bottom: 20px; /* Add spacing between the header and the paragraph */
 }
+
 .header-container p {
     background-color: #d3f8e2;
     position: absolute; /* Use absolute positioning to place it */
@@ -110,73 +111,45 @@ h1, h2, h3 {
   }
 
   .gallery-container {
-    display: flex;
-    align-items: center; /* Vertically align items */
-    justify-content: center; /* Horizontally center the gallery */
     position: relative;
+    width: 80%; /* Adjust as needed */
+    margin: auto;
     overflow: hidden;
-    width: 80%; /* Adjust width as needed */
-    margin: auto; /* Center the container on the page */
 }
 
 .nav-btn {
-    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
     border: none;
-    font-size: 2rem;
+    padding: 10px 20px;
     cursor: pointer;
-    z-index: 2;
-}
-
-.nav-btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    font-size: 24px;
 }
 
 .gallery {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    overflow: hidden; /* Hide extra images outside the container */
+    transition: transform 0.5s ease-in-out;
 }
 
 .gallery-item {
-    flex: 0 0 auto;
-    max-width: 200px; /* Default size for non-center images */
-    opacity: 0.5;
-    transform: scale(0.8);
-    transition: transform 0.5s, opacity 0.5s;
-}
-
-.gallery-item.center {
-    transform: scale(1.2); /* Larger scale for the center image */
-    opacity: 1;
-    max-width: 300px; /* Larger size for the center image */
-    margin: 0 auto; /* Center the image within the gallery */
-    /* margin-left: 300px; */
-}
-
-.gallery-item:not(.center) {
-    filter: brightness(0.7);
-}
-
-/* Position the left and right images */
-.gallery-item.left {
-    transform: translateX(-50%) scale(0.8);
-}
-
-.gallery-item.right {
-    transform: translateX(50%) scale(0.8);
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .nav-btn#prevBtn {
-    position: absolute;
     left: 10px;
 }
 
 .nav-btn#nextBtn {
-    position: absolute;
     right: 10px;
+}
+
+.nav-btn:focus {
+    outline: none;
 }
 
 .project-details {
