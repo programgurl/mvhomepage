@@ -111,11 +111,12 @@ h1, h2, h3 {
 
   .gallery-container {
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertically align items */
+    justify-content: center; /* Horizontally center the gallery */
     position: relative;
-    width: 100%;
-    width: 600px;
-    margin: auto;
+    overflow: hidden;
+    width: 80%; /* Adjust width as needed */
+    margin: auto; /* Center the container on the page */
 }
 
 .nav-btn {
@@ -135,27 +136,37 @@ h1, h2, h3 {
     justify-content: center;
     align-items: center;
     position: relative;
-    transition: transform 0.5s ease-in-out;
     width: 100%;
+    overflow: hidden; /* Hide extra images outside the container */
 }
 
 .gallery-item {
     flex: 0 0 auto;
-    max-width: 200px;
-    height: auto;
+    max-width: 200px; /* Default size for non-center images */
     opacity: 0.5;
     transform: scale(0.8);
     transition: transform 0.5s, opacity 0.5s;
 }
 
 .gallery-item.center {
-    transform: scale(1);
+    transform: scale(1.2); /* Larger scale for the center image */
     opacity: 1;
     max-width: 300px; /* Larger size for the center image */
+    margin: 0 auto; /* Center the image within the gallery */
+    /* margin-left: 300px; */
 }
 
 .gallery-item:not(.center) {
     filter: brightness(0.7);
+}
+
+/* Position the left and right images */
+.gallery-item.left {
+    transform: translateX(-50%) scale(0.8);
+}
+
+.gallery-item.right {
+    transform: translateX(50%) scale(0.8);
 }
 
 .nav-btn#prevBtn {

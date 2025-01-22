@@ -14,15 +14,15 @@ function updateGallery() {
             item.classList.add('center');
         } else if (index === (currentIndex + 1) % items.length) {
             // Right image
-            item.style.transform = 'translateX(100%) scale(0.8)';
+            item.style.transform = 'translateX(35%) scale(0.8)';
             item.style.opacity = '0.5';
         } else if (index === (currentIndex - 1 + items.length) % items.length) {
             // Left image
-            item.style.transform = 'translateX(-100%) scale(0.8)';
+            item.style.transform = 'translateX(-35%) scale(0.8)';
             item.style.opacity = '0.5';
         } else {
             // Hidden images
-            item.style.transform = 'translateX(200%) scale(0.5)';
+            item.style.transform = 'translateX(70%) scale(0.5)';
             item.style.opacity = '0';
         }
     });
