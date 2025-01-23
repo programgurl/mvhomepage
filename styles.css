@@ -210,15 +210,15 @@
       }
 
     .project-image-1 {
-        background-color: rgb(212, 198, 236);
+        background-color: #f7c1a1;
     }
 
     .project-image-2 {
-        background-color: rgb(207, 236, 218);
+        background-color: #f7c1a1;
     }
 
     .project-image-3 {
-        background-color: rgb(244, 215, 215);
+        background-color: #f7c1a1;
     }
 
     .project-details {
@@ -303,15 +303,18 @@
         }
     }
     
-    .footer {
-        background-color: #fef7f3;
-        text-align: center; /* Center the text */
-        padding: 20px 10px; /* Add some spacing */
-        color: #000; /* Black text */
-        font-size: 16px; /* Adjust text size */
-        font-weight: 500; /* Optional: Slightly bolder text */
-        position: relative; /* Default positioning */
-        bottom: 0;
-        width: 100%; /* Span the full width of the screen */
-    }
+.footer {
+    background-color: #fef7f3;
+    text-align: center; /* Center the text */
+    padding: 20px 10px; /* Add some spacing */
+    color: #000; /* Black text */
+    font-size: 16px; /* Adjust text size */
+    font-weight: 500; /* Optional: Slightly bolder text */
+    position: relative; /* Default positioning */
+    bottom: 0;
+    width: 100%; /* Span the full width of the screen */
+}
     
+.resources {
+  padding: 8%;
+}
