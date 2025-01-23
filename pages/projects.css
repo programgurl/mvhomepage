@@ -155,6 +155,8 @@ h1, h2, h3 {
 .project-details {
     margin: 0 auto;
     padding: 20px;
+    max-width: 100%; /* Ensure the section doesn’t exceed the screen width */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .description {
@@ -163,17 +165,26 @@ h1, h2, h3 {
 
 .visuals {
     display: flex;
-    justify-content: space-between; /* Space between video and image */
-    align-items: center; /* Align items vertically */
-    gap: 20px; /* Space between the video and image */
+    justify-content: space-between; /* Add space between the items */
+    align-items: center; /* Align items vertically to handle aspect ratio differences */
+    gap: 20px; /* Add spacing between video and image */
 }
 
-.media-container video,
-.media-container img {
-    height: 20%;
-    width: 20px; /* Adjust the size to fit side by side */
-    height: auto; /* Maintain aspect ratio */
+.visuals video,
+.visuals img {
+  flex: 1; /* Allow both elements to share the available space equally */
+  max-width: 45%; /* Ensure each item takes up no more than 45% of the container width */
+  max-height: 500px; /* Cap the height to keep the layout balanced */
+  /* object-fit: cover; Crop and center the content to fit within the set dimensions */
 }
+
+/* If extra spacing or alignment is needed for large screens */
+@media (min-width: 1200px) {
+    .visuals video,
+    .visuals img {
+      max-height: 600px; /* Slightly increase height on larger screens */
+    }
+  }
 
 .footer {
     text-align: center; /* Center the text */
