@@ -163,6 +163,17 @@ h1, h2, h3 {
     padding: 8%;
 }
 
+.description h1, 
+.description h2, 
+.description h3 { /* Adjust based on your header level */
+    margin-bottom: 16px; /* Adjust value as needed */
+}
+
+.description p {
+    margin-top: 16px; /* Adjust value as needed */
+    margin-bottom: 16px; /* Adjust value as needed */
+}
+
 .visuals {
     display: flex;
     justify-content: space-between; /* Add space between the items */
