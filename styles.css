@@ -206,20 +206,9 @@
     .project-image video {
         width: 80%; /* Make the video smaller inside the box */
         height: 80%; /* Maintain aspect ratio */
+        border-radius: 10px; /* Optional: Rounded corners */
         z-index: 10; /* Ensure the video is brought to the front */
       }
-
-    .project-image-1 {
-        background-color: #f7c1a1;
-    }
-
-    .project-image-2 {
-        background-color: #f7c1a1;
-    }
-
-    .project-image-3 {
-        background-color: #f7c1a1;
-    }
 
     .project-details {
         flex: 1;

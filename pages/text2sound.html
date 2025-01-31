@@ -22,7 +22,8 @@
             <h1>Text2sound Plugin Tool</h1>
 
             <p>
-                [In Progress] Develop a DAW plugin that generates sound effects from textual descriptions using AI.
+              <a href="https://github.com/marivasq/text2sound/tree/main" style="background-color: #d3f8e2;">[Github]</a> 
+              Develop a DAW plugin that generates sound effects from textual descriptions using AI.
             </p>
 
         </div>
@@ -49,7 +50,7 @@
             </tr>
             <tr>
               <th>Tools</th>
-              <td>Python, Freesound API, Audio Libraries</td>
+              <td>Python, Freesound API, PyTorch, Audio Libraries</td>
             </tr>
           </table>
     </section>
@@ -60,37 +61,60 @@
         </div>
         <div class="description">
             <h2>Project Details</h2>
-            <h4>Objective:</h4>
+            <h4>Objective</h4>
                 
-            <p>Build a plugin with a built-in lightweight text-to-sound model for sound design.</p>
+            <p>Develop a digital audio workstation (DAW) plugin with an integrated <strong>lightweight text-to-sound model </strong> for sound designers to generate and manipulate audio using text prompts.</p>
 
-            <h4>Frontend:</h4>
+            <h4>Frontend</h4>
                 
-            <p>
-                User interface for DAW plugin (e.g., JUCE framework).
-                Controls for text input, parameter adjustment, and playback.
-            </p>
+            <div class="features">
+              <div class="feature">
+                  <span class="checkmark">●</span>
+                  <div>
+                    <strong>User Interface:</strong> Designed for seamless DAW integration, built with JUCE.
+                  </div>
+              </div>
+              <div class="feature">
+                  <span class="checkmark">●</span>
+                  <div>
+                    <strong>Controls:</strong> Text input for sound generation, parameter adjustments for fine-tuning, and real-time playback support.
+                  </div>
+              </div>
+            </div>
 
-            <h4>Backend:</h4>
+            <h4>Backend</h4>
                 
-            <p>
-                GAN model on spectograms.
-            </p>
+            <div class="features">
+              <div class="feature">
+                  <span class="checkmark">●</span>
+                  <div>
+                    <strong>Generative Model:</strong> Utilizes a <strong>GAN-based approach</strong> on spectrograms to synthesize high-quality audio from text descriptions.
+                  </div>
+              </div>
+            </div>
 
-            <h4>Storage:</h4>
+            <h4>Storage</h4>
                 
             <p>
                 Local storage for user presets and recent sound generations.
             </p>
 
-            <h4>Data Collection:</h4>
+            <h4>Data Collection</h4>
 
-            <p>
-                Download 5000 .wav files with FreeSound API from categories (e.g., kick, snare, etc).
-            </p>
-            <p>
-              Metadata .csv with extra info.
-            </p>
+            <div class="features">
+              <div class="feature">
+                <span class="checkmark">●</span>
+                <div>
+                  <strong>Dataset:</strong> Curated 5,000+ high-quality .wav files from Freesound API, covering percussive sound categories (e.g., kicks, snares, ambience, synths).
+                </div>
+              </div>
+              <div class="feature">
+                <span class="checkmark">●</span>
+                <div>
+                  <strong>Metadata:</strong> A structured CSV file containing descriptive attributes for training and fine-tuning the model.
+                </div>
+              </div>
+            </div>
 
         </div>
         
