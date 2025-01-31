@@ -68,19 +68,36 @@
         <div class="description">
             <h2>Project Details</h2>
 
-            <h4>Objective:</h4>
+            <h4>Objective</h4>
             <p>
                 Add a feature to an internal tool which allows artists to generate new face textures. Users should be able to edit a series of features in the image such as skin tone, age, facial hair, etc.
             </p>
+            <p>
+              As an extra feature, I integrated an upscaling model to upscale the output image to the desired dimensions.
+            </p>
 
-            <h4>Context:</h4>
+            <h4>Context</h4>
             <p>
                 GANs or Generative Adversarial Networks have widely been used for image synthesis but fail to offer any control over the generated image. GANSpace uses Principal Component Analysis to find  series of features that vary within the training data.
             </p>
 
-            <h4>Dataset:</h4>
+            <h4>Dataset</h4>
             <p>
-                Open-source over 50k UV facial texture samples.
+                Open-source over 50k UV facial texture samples, <a href="https://github.com/csbhr/FFHQ-UV">FFHQ-UV</a>.
+            </p>
+
+            <h4>Methodology:</h4>
+            <p>
+                After doing some literature review, my team decided on using GanSpace for our project. This unsupervised method of image generation was the perfect compromise since we only had access to limited datasets and hand-labeling existing datasets can be expensive and unpractical.
+            </p>
+            <p>
+                I consulted with animators and UX designers at the studio to gain a better understanding of what controls might be useful for our target user and how the output should look like.
+            </p>
+            <p>
+                As part of the feedback from the animators, it was requested that we add funtionality to upscale the output image to a desired dimension. To enable this, I added a feature to use Upscaling (Real-ESRGAN).
+            </p>
+            <p>
+                I used TorchScript to serialize and optimize the PyTorch model. For the UI, I used PyQt to create the final wrapper.
             </p>
 
         </div>
